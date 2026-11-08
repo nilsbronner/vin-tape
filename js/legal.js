@@ -10,7 +10,8 @@ if (page) {
   const cible = main.querySelector('[data-legal]');
   for (const { titre, texte } of page.sections) {
     const section = creer('section');
-    section.append(creer('h2', null, titre), creer('p', null, texte));
+    section.append(creer('h2', null, titre));
+    for (const paragraphe of Array.isArray(texte) ? texte : [texte]) section.append(creer('p', null, paragraphe));
     cible.append(section);
   }
 }
