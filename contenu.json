@@ -266,16 +266,28 @@
     "propriete": "Les œuvres et les pièces Vin'tape sont la propriété d'EAZ. [À VALIDER]"
   },
   "legal": {
+    "_note": "Pages légales. Contenu à faire relire avant la mise en vente : tout ce qui est [À REMPLIR], [À VALIDER] ou [À DÉFINIR] doit être complété.",
     "mentionsLegales": {
       "titre": "Mentions légales",
       "sections": [
         {
           "titre": "Éditeur du site",
-          "texte": "[À REMPLIR] Nom, statut, adresse, SIRET, contact."
+          "texte": [
+            "EAZ (Thierry Raynaud), artiste plasticien.",
+            "Statut : [À REMPLIR]",
+            "Adresse : [À REMPLIR]",
+            "SIRET : [À REMPLIR]",
+            "N° de TVA intracommunautaire : [À REMPLIR]",
+            "Contact : [À REMPLIR]"
+          ]
         },
         {
           "titre": "Directeur de la publication",
-          "texte": "[À REMPLIR]"
+          "texte": "Thierry Raynaud. [À VALIDER]"
+        },
+        {
+          "titre": "Conception et réalisation du site",
+          "texte": "Nils Bronner. [À VALIDER]"
         },
         {
           "titre": "Hébergement",
@@ -283,7 +295,11 @@
         },
         {
           "titre": "Propriété intellectuelle",
-          "texte": "[À REMPLIR]"
+          "texte": "Les œuvres et les pièces Vin'tape, leurs photographies et leurs visuels sont la propriété d'EAZ. Le site (code, mise en page) est la propriété de Nils Bronner. Toute reproduction sans autorisation est interdite. [À VALIDER]"
+        },
+        {
+          "titre": "Crédits",
+          "texte": "Photographies : [À REMPLIR]"
         }
       ]
     },
@@ -291,24 +307,56 @@
       "titre": "Conditions générales de vente",
       "sections": [
         {
-          "titre": "Objet",
-          "texte": "[À REMPLIR]"
+          "titre": "1. Objet",
+          "texte": "Les présentes conditions régissent la vente à distance des enceintes Vin'tape (première édition de 24 pièces) sur ce site, entre le vendeur et tout acheteur consommateur. [À VALIDER]"
         },
         {
-          "titre": "Prix et paiement",
-          "texte": "[À REMPLIR]"
+          "titre": "2. Vendeur",
+          "texte": "EAZ (Thierry Raynaud). Adresse : [À REMPLIR]. SIRET : [À REMPLIR]. N° de TVA intracommunautaire : [À REMPLIR]. Contact : [À REMPLIR]"
         },
         {
-          "titre": "Livraison",
-          "texte": "[À REMPLIR]"
+          "titre": "3. Produits",
+          "texte": "Chaque enceinte Vin'tape est une pièce unique, numérotée de 1 à 24. Les photos et visuels 3D sont aussi fidèles que possible ; de légères différences de teinte peuvent exister selon l'écran. [À VALIDER]"
         },
         {
-          "titre": "Droit de rétractation",
-          "texte": "[À REMPLIR]"
+          "titre": "4. Prix",
+          "texte": "Le prix est de 850 € TTC par pièce, TVA incluse. Les frais de livraison sont de [À DÉFINIR] et sont indiqués avant le paiement."
         },
         {
-          "titre": "Garanties",
-          "texte": "[À REMPLIR]"
+          "titre": "5. Commande et paiement",
+          "texte": "La commande se fait en cliquant sur « Réserver cette pièce », qui ouvre une page de paiement sécurisée Stripe propre à la pièce. Le paiement est exigé à la commande. La vente est conclue à la validation du paiement ; une confirmation est envoyée par e-mail. [À VALIDER]"
+        },
+        {
+          "titre": "6. Disponibilité",
+          "texte": "Chaque pièce n'existe qu'en un exemplaire. Si une même pièce était payée deux fois, le second acheteur serait intégralement remboursé sous [À DÉFINIR] jours. [À VALIDER]"
+        },
+        {
+          "titre": "7. Livraison",
+          "texte": "Expédition sous 2 jours ouvrés après paiement, par DHL ou UPS, dans un carton triple cannelure avec mousses de calage et papier kraft. Zones de livraison : [À DÉFINIR]. Délais de transport : [À DÉFINIR]. En cas de colis endommagé, l'acheteur émet des réserves auprès du transporteur à la réception et prévient le vendeur sous [À DÉFINIR] jours. [À VALIDER]"
+        },
+        {
+          "titre": "8. Droit de rétractation",
+          "texte": [
+            "Conformément à l'article L221-18 du Code de la consommation, l'acheteur dispose de 14 jours à compter de la réception de la pièce pour se rétracter, sans avoir à se justifier, en le signalant à [À REMPLIR].",
+            "La pièce doit être retournée complète, dans son état et son emballage d'origine, dans les 14 jours suivant la rétractation. Les frais de retour sont à la charge de [À DÉFINIR].",
+            "Le remboursement intervient dans les 14 jours suivant la rétractation, par le même moyen de paiement ; il peut être différé jusqu'à la réception de la pièce retournée. [À VALIDER]"
+          ]
+        },
+        {
+          "titre": "9. Garanties légales",
+          "texte": "La pièce bénéficie de la garantie légale de conformité (articles L217-3 et suivants du Code de la consommation) et de la garantie des vices cachés (articles 1641 et suivants du Code civil). [À VALIDER]"
+        },
+        {
+          "titre": "10. Données personnelles",
+          "texte": "Voir la politique de confidentialité."
+        },
+        {
+          "titre": "11. Médiation de la consommation",
+          "texte": "En cas de litige, l'acheteur peut recourir gratuitement au médiateur de la consommation : [À REMPLIR]."
+        },
+        {
+          "titre": "12. Droit applicable",
+          "texte": "Les présentes conditions sont soumises au droit français. [À VALIDER]"
         }
       ]
     },
@@ -316,20 +364,32 @@
       "titre": "Politique de confidentialité",
       "sections": [
         {
-          "titre": "Données collectées",
-          "texte": "[À REMPLIR]"
+          "titre": "Responsable du traitement",
+          "texte": "EAZ (Thierry Raynaud). Contact : [À REMPLIR]"
         },
         {
-          "titre": "Module « Voir chez moi »",
-          "texte": "Les photos utilisées dans le module « Voir chez moi » restent dans ton navigateur : elles ne sont ni envoyées, ni stockées."
+          "titre": "Ce site ne dépose aucun cookie",
+          "texte": "Pas de mesure d'audience, pas de publicité, pas de traceur. Les polices et les images sont servies par le site lui-même."
         },
         {
-          "titre": "Paiement",
-          "texte": "[À REMPLIR] Le paiement est traité par Stripe."
+          "titre": "Données collectées lors d'un achat",
+          "texte": "Le paiement se fait sur une page Stripe : nom, e-mail, adresse de livraison et données de paiement sont traités par Stripe et par le vendeur pour exécuter la commande et la livraison (transmission de l'adresse au transporteur DHL ou UPS). Durée de conservation : [À REMPLIR]. [À VALIDER]"
+        },
+        {
+          "titre": "Module « Chez toi, en vrai »",
+          "texte": "La 3D et la réalité augmentée fonctionnent sur ton appareil : aucune image de ta pièce n'est envoyée ni enregistrée."
+        },
+        {
+          "titre": "Vidéos",
+          "texte": "Les vidéos ne se chargent que si tu cliques dessus. Elles sont alors servies par Vimeo, en mode « ne pas suivre ». [À VALIDER]"
+        },
+        {
+          "titre": "Hébergement",
+          "texte": "Le site est hébergé par Vercel, qui peut conserver des journaux techniques de connexion (adresse IP) pour la sécurité du service. [À VALIDER]"
         },
         {
           "titre": "Tes droits",
-          "texte": "[À REMPLIR]"
+          "texte": "Tu peux demander l'accès, la rectification, l'effacement ou la portabilité de tes données, ou t'opposer à leur traitement, en écrivant à [À REMPLIR]. Tu peux aussi saisir la CNIL (cnil.fr)."
         }
       ]
     }
