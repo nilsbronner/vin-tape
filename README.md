@@ -84,6 +84,18 @@ Deux emplacements dans `contenu.json` → `"videos"` : `"videoDemo"` (sous « L'
 - Tant que le visiteur ne clique pas, aucune connexion à Vimeo : pas de cookie, pas d'appel externe. Au clic, le lecteur Vimeo se charge avec `dnt=1` (« ne pas suivre »). La politique de sécurité (`vercel.json`) n'autorise que `player.vimeo.com` en cadre.
 - Dans Vimeo, autoriser l'intégration de la vidéo sur le domaine du site (Paramètres de la vidéo → Intégration).
 
+## Pinterest et partage
+
+- **Épingles** : une image verticale 1000 × 1500 par pièce (fond beige, pièce centrée, « Vin'tape · N° xx »), dans `assets/epingles/`. À régénérer après tout changement de numérotation ou de packshot :
+
+```bash
+python3 outils/generer_epingles.py
+```
+
+  En épinglant, mettre comme lien la fiche de la pièce : `https://<adresse du site>/#piece-07`.
+- **Vérification du domaine** : dans `index.html`, remplacer `[À REMPLIR]` dans `<meta name="p:domain_verify" …>` par le code donné par Pinterest (Paramètres → Comptes revendiqués → Site web).
+- **Image de partage** (Open Graph, Twitter) : `assets/img/og-v4.png`, 1200 × 630.
+
 ## Ajouter une boutique (section « Où le voir »)
 
 La section « Où le voir » s'affiche après le catalogue dès que **`boutiques.json`** contient au moins une boutique. Tant que la liste est vide, elle reste invisible.
