@@ -1,0 +1,28 @@
+# Photos originales lourdes : jamais dans git
+/originals/
+*.raw
+*.cr2
+*.cr3
+*.nef
+*.arw
+*.dng
+*.psd
+*.tif
+*.tiff
+*.heic
+
+# Secrets
+.env
+.env.*
+
+# Fichiers système et éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# Outils
+node_modules/
+.vercel/
