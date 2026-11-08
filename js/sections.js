@@ -29,7 +29,13 @@ export function remplirFiche(contenu) {
   const dl = document.querySelector('[data-fiche]');
   if (!dl) return;
   dl.textContent = '';
-  for (const { libelle, valeur } of contenu.ficheTechnique.chiffres || []) {
+  const { dimensionsCm: d = {}, poidsKg } = contenu.ficheTechnique;
+  const calcule = {
+    Dimensions: d.largeur && d.hauteur && d.profondeur ? `${d.largeur} × ${d.hauteur} × ${d.profondeur} cm (l × h × p)` : null,
+    Poids: typeof poidsKg === 'number' ? `${String(poidsKg).replace('.', ',')} kg` : null,
+  };
+  for (const { libelle, valeur: brute } of contenu.ficheTechnique.chiffres || []) {
+    const valeur = calcule[libelle] || brute;
     const bloc = creer('div', 'fiche__ligne');
     bloc.append(creer('dt', null, libelle), creer('dd', null, valeur));
     dl.append(bloc);
