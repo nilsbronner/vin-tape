@@ -397,3 +397,107 @@ blockquote, figure { margin: 0; }
   }
   .js .revele { opacity: 1; transform: none; }
 }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: center;
+  justify-items: center;
+  gap: 1.1rem;
+  padding: 6rem var(--marge) 5rem;
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: -20% -20% auto;
+  height: 120%;
+  z-index: -1;
+  background: radial-gradient(50% 45% at 50% 52%, color-mix(in srgb, var(--facade) 30%, transparent), transparent 70%);
+  transition: background .9s ease;
+}
+.hero__texte { display: contents; }
+.hero .surtitre { order: 1; }
+.hero__titre {
+  order: 2;
+  font-family: var(--police-titre);
+  font-weight: 900;
+  font-size: clamp(5.5rem, 27vw, 15rem);
+  line-height: .78;
+  letter-spacing: -.015em;
+  text-transform: uppercase;
+}
+.hero__visuel { order: 3; width: min(100%, 30rem); margin-block: .75rem; }
+.hero__accroche {
+  order: 4;
+  font-size: clamp(1.25rem, 3.6vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.25;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+.hero .bouton { order: 5; margin-top: .5rem; }
+.hero__signature { order: 6; font-family: var(--police-mono); font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--discret); }
+
+.hero__cassette {
+  transform: rotate(-5deg);
+  animation: flotte 7s ease-in-out infinite;
+  filter: drop-shadow(0 30px 40px rgb(0 0 0 / .55)) drop-shadow(0 6px 30px color-mix(in srgb, var(--facade) 30%, transparent));
+}
+.hero__cassette svg { width: 100%; height: auto; }
+@keyframes flotte {
+  0%, 100% { transform: rotate(-5deg) translateY(0); }
+  50% { transform: rotate(-3deg) translateY(-10px); }
+}
+.hero__legende {
+  margin-top: 1.4rem;
+  font-family: var(--police-mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--discret);
+  min-height: 1.5em;
+}
+.hero__suite {
+  position: absolute; left: 50%; bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  translate: -50% 0;
+  display: grid; place-items: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  color: var(--discret);
+  text-decoration: none;
+  font-size: .75rem;
+  rotate: 90deg;
+  animation: invite 2.4s ease-in-out infinite;
+}
+@keyframes invite { 50% { transform: translateX(6px); } }
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "surtitre visuel"
+      "titre    visuel"
+      "accroche visuel"
+      "bouton   visuel"
+      "signature visuel";
+    justify-items: start;
+    text-align: left;
+    column-gap: 4rem;
+    max-width: calc(var(--largeur) + 2 * var(--marge));
+    margin-inline: auto;
+  }
+  .hero .surtitre { grid-area: surtitre; align-self: end; }
+  .hero__titre { grid-area: titre; font-size: clamp(7rem, 13vw, 13rem); }
+  .hero__visuel { grid-area: visuel; align-self: center; width: 100%; }
+  .hero__accroche { grid-area: accroche; }
+  .hero .bouton { grid-area: bouton; }
+  .hero__signature { grid-area: signature; align-self: start; }
+  .hero__legende { text-align: center; }
+}
