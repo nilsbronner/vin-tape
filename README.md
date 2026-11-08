@@ -35,6 +35,18 @@ Dans **`pieces.json`**, chercher la pièce par son `"numero"` et passer `"statut
 
 Les 24 pièces ont été identifiées sur les photos du 6 novembre : 8 couleurs (menthe, sauge, orange, vert, bleu, rouge, violet, jaune) × 3 versions (`"chrome"` caisson blanc, `"alga"` étiquette Super Colour caisson noir, `"low-noise"` caisson assorti). Format, étiquette (`marque`) et caisson viennent des photos. **La numérotation reste provisoire** : corriger `numero` avant le lancement.
 
+## Livraison et paiement
+
+Textes dans `contenu.json` → `"livraison"` : une ligne par sujet (prix, paiement, expédition, emballage, transporteur, frais). Les frais de livraison sont `[À DÉFINIR]` : remplacer la valeur de la ligne « Frais de livraison » quand les tarifs DHL / UPS sont fixés.
+
+**Photos du carton** : déposer les originaux dans `/originals/` (jamais commités), puis :
+
+```bash
+python3 outils/optimiser_photos.py originals/carton-1.jpg originals/carton-2.jpg
+```
+
+Le script crée `assets/img/carton-1-v1.webp` et `carton-2-v1.webp` (WebP, 1600 px, moins de 300 Ko). Renseigner ensuite leurs chemins dans `"livraison.photos[].src"`. Le même outil sert pour toutes les photos réelles (option `--dossier`).
+
 ## Ajouter une boutique (section « Où le voir »)
 
 La section « Où le voir » s'affiche après le catalogue dès que **`boutiques.json`** contient au moins une boutique. Tant que la liste est vide, elle reste invisible.

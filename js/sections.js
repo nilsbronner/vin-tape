@@ -102,3 +102,35 @@ export function remplirPied(contenu) {
     }
   }
 }
+
+export function remplirLivraison(contenu) {
+  const l = contenu.livraison;
+  const dl = document.querySelector('[data-livraison-liste]');
+  const photos = document.querySelector('[data-livraison-photos]');
+  if (!l || !dl) return;
+  dl.textContent = '';
+  for (const { libelle, valeur } of l.lignes || []) {
+    const bloc = creer('div', 'fiche__ligne');
+    bloc.append(creer('dt', null, libelle), creer('dd', null, valeur));
+    dl.append(bloc);
+  }
+  if (!photos) return;
+  photos.textContent = '';
+  for (const { src, alt } of l.photos || []) {
+    const figure = creer('figure', 'livraison__photo');
+    if (src) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = alt || '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.width = 1200;
+      img.height = 900;
+      figure.append(img);
+    } else {
+      figure.classList.add('livraison__photo--vide');
+      figure.append(creer('span', 'a-remplir', '[À REMPLIR]'), creer('span', null, l.photoAVenir));
+    }
+    photos.append(figure);
+  }
+}

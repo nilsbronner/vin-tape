@@ -137,7 +137,20 @@
       <div class="catalogue__bande" aria-hidden="true"><span data-cat-progression></span></div>
     </section>
 
-    <!-- 5 bis. Où le voir (masquée tant que boutiques.json est vide) -->
+    <!-- 5 bis. Livraison et paiement -->
+    <section class="section livraison" id="livraison" aria-labelledby="livraison-titre" data-livraison>
+      <header class="section__tete revele">
+        <p class="piste" data-contenu="livraison.piste"></p>
+        <h2 id="livraison-titre" data-contenu="livraison.titre"></h2>
+        <p class="section__intro" data-contenu="livraison.intro"></p>
+      </header>
+      <div class="livraison__grille">
+        <dl class="fiche__chiffres livraison__liste revele" data-livraison-liste></dl>
+        <div class="livraison__photos revele" data-livraison-photos></div>
+      </div>
+    </section>
+
+    <!-- 5 ter. Où le voir (masquée tant que boutiques.json est vide) -->
     <section class="section boutiques" id="ou-le-voir" aria-labelledby="boutiques-titre" data-boutiques hidden>
       <header class="section__tete revele">
         <p class="piste" data-contenu="ouLeVoir.piste"></p>
@@ -197,7 +210,7 @@
     <section class="section appel" id="reserver" aria-labelledby="appel-titre">
       <div class="appel__carte revele">
         <h2 id="appel-titre" data-contenu="appel.titre"></h2>
-        <p class="appel__prix" data-contenu="appel.prix"></p>
+        <p class="appel__prix"><span data-contenu="appel.prix"></span> <span class="appel__tva" data-contenu="appel.tva"></span></p>
         <p class="compteur compteur--grand"><strong data-compteur>–</strong>/24 <span data-contenu="catalogue.disponibles"></span></p>
         <p data-contenu="appel.texte"></p>
         <div class="appel__actions" data-appel-actions>

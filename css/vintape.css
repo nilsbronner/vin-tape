@@ -74,6 +74,7 @@ body {
 #idee { --piste: #f0782d; }
 #savoir-faire { --piste: #f3c43b; }
 #catalogue { --piste: #d8392b; }
+#livraison { --piste: #b4491b; }
 #ou-le-voir { --piste: #6ccf1d; }
 #chez-moi { --piste: #2d5fd0; }
 #fiche { --piste: #7b52c4; }
@@ -800,6 +801,33 @@ blockquote, figure { margin: 0; }
 }
 
 .appel__selection:empty { display: none; }
+
+/* ==========================================================================
+   Livraison et paiement
+   ========================================================================== */
+.livraison__grille { display: grid; gap: 2.5rem; }
+.livraison__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-content: start; }
+.livraison__photo img, .livraison__photo--vide {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--rayon);
+}
+.livraison__photo--vide {
+  display: grid; place-content: center; justify-items: center; gap: .5rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: .85rem;
+  color: var(--discret);
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgb(34 31 27 / .035) 14px 28px),
+    #e4d6bf;
+  border: 1px dashed var(--ligne);
+}
+@media (min-width: 900px) {
+  .livraison__grille { grid-template-columns: 7fr 5fr; gap: 4rem; align-items: start; }
+}
+.appel__tva { font-family: var(--police-mono); font-size: .9rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--discret); vertical-align: middle; }
 
 /* ==========================================================================
    Où le voir

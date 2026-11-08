@@ -1,9 +1,9 @@
 // Remplit la page à partir de contenu.json.
 // - data-contenu="chemin.vers.texte"            → texte simple
 // - data-contenu-paragraphes="chemin.vers.liste" → un <p> par entrée
-// Les marqueurs [À REMPLIR] et [À VALIDER] sont mis en surbrillance.
+// Les marqueurs [À REMPLIR], [À VALIDER] et [À DÉFINIR] sont mis en surbrillance.
 
-const MARQUEUR = /(\[À (?:REMPLIR|VALIDER)\])/;
+const MARQUEUR = /(\[À (?:REMPLIR|VALIDER|DÉFINIR)\])/;
 
 export function lire(objet, chemin) {
   return chemin.split('.').reduce((o, cle) => (o == null ? undefined : o[cle]), objet);
