@@ -16,17 +16,17 @@
   <meta property="og:title" content="Vin'tape — 24 enceintes-cassettes uniques par EAZ">
   <meta property="og:description" content="Rewind. Play. Même frisson, vrai son. Première édition de 24 pièces numérotées, 850 € TTC.">
   <meta property="og:url" content="https://vintape.vercel.app/">
-  <meta property="og:image" content="https://vintape.vercel.app/assets/img/og-v2.png">
+  <meta property="og:image" content="https://vintape.vercel.app/assets/img/og-v3.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Une enceinte Vin'tape en forme de cassette audio">
+  <meta property="og:image:alt" content="Une enceinte Vin'tape menthe, façade cassette Chrome arc-en-ciel">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="/assets/fonts/big-shoulders-display-v1.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/dm-sans-v1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/pieces/packshot-menthe-chrome-v1.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="/contenu.json" as="fetch" crossorigin>
   <link rel="preload" href="/pieces.json" as="fetch" crossorigin>
-  <link rel="modulepreload" href="/js/cassette.js">
   <link rel="modulepreload" href="/js/donnees.js">
   <script type="application/ld+json">
   {
@@ -34,7 +34,7 @@
     "@type": "Product",
     "name": "Vin'tape — enceinte-cassette, première édition",
     "description": "Enceinte en forme de cassette audio, pièce unique numérotée parmi 24, œuvre de l'artiste plasticien EAZ (Strasbourg). Bluetooth, jack 3,5 mm, secteur.",
-    "image": "https://vintape.vercel.app/assets/img/og-v2.png",
+    "image": "https://vintape.vercel.app/assets/img/og-v3.png",
     "brand": { "@type": "Brand", "name": "EAZ" },
     "offers": { "@type": "Offer", "price": "850", "priceCurrency": "EUR", "url": "https://vintape.vercel.app/#catalogue" }
   }
@@ -63,7 +63,9 @@
         <p class="hero__signature" data-contenu="hero.signature"></p>
       </div>
       <figure class="hero__visuel">
-        <div class="hero__cassette" data-hero-cassette></div>
+        <div class="hero__piece" data-hero-visuel>
+          <img class="est-active" src="/assets/pieces/packshot-menthe-chrome-v1.webp" width="951" height="650" alt="Enceinte Vin’tape menthe, façade cassette Chrome arc-en-ciel" fetchpriority="high" decoding="async">
+        </div>
         <figcaption class="hero__legende" data-hero-legende aria-live="off"></figcaption>
       </figure>
       <a class="hero__suite" href="#artiste" aria-label="Faire défiler vers la suite">
@@ -97,7 +99,7 @@
           <h2 id="idee-titre" class="idee__phrase" data-phrase-ouverture></h2>
         </header>
         <div class="idee__visuel">
-          <div class="idee__cassette" data-idee-cassette></div>
+          <figure class="idee__facade" data-idee-facade></figure>
           <ol class="idee__etapes" data-idee-etapes></ol>
         </div>
         <ul class="idee__connectique" data-idee-connectique aria-label="Connectique et réglages"></ul>
@@ -132,49 +134,29 @@
       <div class="catalogue__bande" aria-hidden="true"><span data-cat-progression></span></div>
     </section>
 
-    <!-- 6. Voir chez moi -->
-    <section class="section vcm" id="chez-moi" aria-labelledby="vcm-titre" data-vcm>
+    <!-- 6. Voir chez moi : 3D + réalité augmentée -->
+    <section class="section v3d" id="chez-moi" aria-labelledby="v3d-titre" data-v3d>
       <header class="section__tete revele">
         <p class="piste" data-contenu="voirChezMoi.piste"></p>
-        <h2 id="vcm-titre" data-contenu="voirChezMoi.titre"></h2>
+        <h2 id="v3d-titre" data-contenu="voirChezMoi.titre"></h2>
         <p class="section__intro" data-contenu="voirChezMoi.intro"></p>
       </header>
-      <div class="vcm__grille">
-        <div class="vcm__scene">
-          <canvas class="vcm__canvas" data-vcm-canvas tabindex="0" role="img" aria-describedby="vcm-aide"></canvas>
-        </div>
-        <div class="vcm__commandes">
-          <p class="vcm__conseil" data-contenu="voirChezMoi.conseil"></p>
-          <div class="vcm__photos">
-            <label class="bouton vcm__bouton-photo" data-vcm-camera-label>
-              <span data-contenu="voirChezMoi.boutonPhoto"></span>
-              <input class="visuellement-cache" type="file" accept="image/*" capture="environment" data-vcm-camera>
-            </label>
-            <label class="bouton bouton--contour">
-              <span data-contenu="voirChezMoi.boutonCharger"></span>
-              <input class="visuellement-cache" type="file" accept="image/*" data-vcm-fichier>
-            </label>
-          </div>
-          <div class="vcm__champ">
-            <label for="vcm-piece" data-contenu="voirChezMoi.libellePiece"></label>
-            <div class="vcm__piece">
-              <button type="button" class="bouton-rond" data-vcm-prec aria-label="Pièce précédente">◀</button>
-              <select id="vcm-piece" data-vcm-select></select>
-              <button type="button" class="bouton-rond" data-vcm-suiv aria-label="Pièce suivante">▶</button>
+      <div class="v3d__grille">
+        <div class="v3d__scene" data-v3d-scene></div>
+        <div class="v3d__commandes">
+          <div class="v3d__ar" data-v3d-ar aria-live="polite"></div>
+          <div class="v3d__champ">
+            <label for="v3d-piece" data-contenu="voirChezMoi.libellePiece"></label>
+            <div class="v3d__piece">
+              <button type="button" class="bouton-rond" data-v3d-prec aria-label="Pièce précédente">◀</button>
+              <select id="v3d-piece" data-v3d-select></select>
+              <button type="button" class="bouton-rond" data-v3d-suiv aria-label="Pièce suivante">▶</button>
             </div>
           </div>
-          <div class="vcm__champ">
-            <label for="vcm-taille" data-contenu="voirChezMoi.libelleTaille"></label>
-            <input id="vcm-taille" type="range" min="6" max="90" step="1" value="30" data-vcm-taille>
-          </div>
-          <div class="vcm__actions">
-            <button type="button" class="bouton bouton--contour bouton--petit" data-vcm-recentrer data-contenu="voirChezMoi.boutonRecentrer"></button>
-            <button type="button" class="bouton bouton--contour bouton--petit" data-vcm-exemple data-contenu="voirChezMoi.boutonExemple" hidden></button>
-            <button type="button" class="bouton bouton--contour bouton--petit" data-vcm-enregistrer data-contenu="voirChezMoi.boutonEnregistrer"></button>
-          </div>
-          <p class="vcm__aide" id="vcm-aide" data-contenu="voirChezMoi.aide"></p>
-          <p class="vcm__confidentialite" data-contenu="voirChezMoi.confidentialite"></p>
-          <div class="vcm__reserver" data-vcm-reserver></div>
+          <p class="v3d__aide" data-contenu="voirChezMoi.aide"></p>
+          <p class="v3d__dimensions" data-v3d-dimensions></p>
+          <p class="v3d__confidentialite" data-contenu="voirChezMoi.confidentialite"></p>
+          <div class="v3d__reserver" data-v3d-reserver></div>
         </div>
       </div>
     </section>

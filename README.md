@@ -19,7 +19,8 @@ Tous les textes sont dans **`contenu.json`** : accroche, histoire, savoir-faire,
 - `[À REMPLIR]` : texte manquant. `[À VALIDER]` : info à confirmer. Les deux s'affichent en surbrillance jaune sur le site tant qu'ils sont là.
 - **Accroche** : `"accroche"`. Les pistes non retenues sont dans `"accrochesAlternatives"`.
 - **Phrase d'ouverture de « L'idée »** : `"idee.phraseOuverture.version"` vaut `"question"` ou `"affirmation"`.
-- **Échelle du module « Voir chez moi »** : `"ficheTechnique.largeurReelleCm"` (nombre, par exemple `26.5`). Tant que la valeur est `null`, le repère affiche « à renseigner ».
+- **Vraies dimensions** : `"ficheTechnique.dimensionsCm"` (largeur, hauteur, profondeur en cm). Le modèle 3D et la réalité augmentée s'y ajustent automatiquement. Tant qu'elles sont vides, le site affiche des dimensions provisoires (environ 45 × 23 × 20 cm) marquées « à valider ».
+- **Repères de la section « L'idée »** : `"idee.facade.reperes"` (positions en % sur la photo de façade).
 - **Portrait** : `"histoire.portrait.src"` (par exemple `/assets/img/portrait-eaz-v1.webp`).
 - **Avis vidéo** : `"video"` et `"poster"` de chaque avis (chemins vers des fichiers du dépôt).
 - **Contact** : `"appel.contactEmail"`. Dès qu'il s'agit d'une vraie adresse, il devient un lien mailto.
@@ -31,7 +32,7 @@ Les balises du `<head>` de `index.html` (titre, description, Open Graph) sont à
 
 Dans **`pieces.json`**, chercher la pièce par son `"numero"` et passer `"statut"` à `"vendue"` (ou `"disponible"`). Le compteur « x/24 disponibles », le catalogue, le grisé et les boutons se mettent à jour seuls.
 
-Les 24 entrées actuelles sont des **données de test** : corriger les combinaisons de couleurs (`couleurFacade`, `couleurArriere`, `etiquette`), le `format` (`"C60"` ou `"C90"`) et les statuts avant le lancement. Les couleurs sont des clés de la `"palette"` en haut du fichier ; on peut en ajouter ou ajuster leur code hexadécimal.
+La collection a été déduite des photos du 6 novembre : 8 couleurs × 3 versions (`"chrome"` caisson blanc, `"alga"` étiquette Super Colour caisson noir, `"low-noise"` caisson assorti). **La numérotation est provisoire**, et la 8e couleur n'apparaît sur aucune photo : corriger `numero`, `couleur`, `format` (`"60"` ou `"90"`) avant le lancement.
 
 ## Ajouter un lien Stripe
 
@@ -43,9 +44,21 @@ Créer un Payment Link dans Stripe pour la pièce, puis le coller dans `"lienPai
 
 Tant que le champ est vide, la pièce affiche « Bientôt disponible ». Le lien doit commencer par `https://`.
 
-## Ajouter les photos des pièces
+## Photos, visuels et modèles 3D
 
-Voir `assets/pieces/LISEZMOI.md`. En résumé : photos optimisées en WebP (moins de 300 Ko), chemins dans `"images"` de `pieces.json`. Sans image, le site dessine la pièce en SVG avec ses couleurs. Les originaux lourds vont dans `/originals/`, ignoré par git.
+Chaque pièce a, dans `pieces.json` :
+- `"images.packshot"` : le visuel détouré du catalogue et du hero (WebP transparent) ;
+- `"modele3d"` : le modèle 3D (`.glb`) utilisé par « Chez toi, en vrai » et la réalité augmentée.
+
+Ils sont fabriqués à partir des vraies photos par `outils/generer_modeles.py` (façade redressée et plaquée sur un caisson aux bonnes proportions). Pour ajouter une pièce : mettre ses photos dans `/originals/` (ignoré par git), noter les 4 coins de sa façade dans `outils/pieces-photos.json`, l'ajouter à `PIECES` dans le script, puis :
+
+```bash
+python3 outils/generer_modeles.py
+```
+
+Les packshots sont des rendus du modèle 3D (voir `assets/pieces/LISEZMOI.md`). Sans visuel, la carte affiche « Photo à venir ».
+
+La réalité augmentée marche sur iPhone (Quick Look) et Android (Scene Viewer ou WebXR). Sur ordinateur, on fait tourner la pièce en 3D. La bibliothèque `assets/vendor/model-viewer-4.4.0.min.js` (Google, licence Apache 2.0) n'est chargée qu'à l'approche de la section.
 
 ## Publier
 
@@ -71,8 +84,8 @@ Chaque push sur `main` déploie en production. Chaque branche ou pull request a 
 | `contenu.json`, `pieces.json` | Textes et données des pièces |
 | `css/vintape.css` | Styles (mobile first) |
 | `js/app.js` | Point d'entrée |
-| `js/cassette.js` | Dessin SVG de la cassette, couleurs en variables CSS (`--facade`, `--arriere`, `--etiquette`) : base du futur configurateur |
-| `js/hero.js`, `js/idee.js`, `js/catalogue.js`, `js/voir-chez-moi.js` | Une section chacun |
+| `js/hero.js`, `js/idee.js`, `js/catalogue.js`, `js/voir-en-3d.js` | Une section chacun |
+| `outils/` | Génération des textures et modèles 3D à partir des photos (hors site) |
 | `js/contenu.js`, `js/sections.js` | Remplissage des textes |
 | `assets/` | Polices, images. Cache d'un an : changer le nom d'un fichier (`-v2`) pour le remplacer |
 
