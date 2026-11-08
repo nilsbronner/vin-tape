@@ -455,6 +455,17 @@ blockquote, figure { margin: 0; }
   letter-spacing: -.015em;
   text-transform: uppercase;
 }
+.hero__produit {
+  order: 2;
+  font-family: var(--police-mono);
+  font-weight: 500;
+  font-size: clamp(.85rem, 2.4vw, 1.05rem);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-fonce);
+  max-width: 40ch;
+  text-wrap: balance;
+}
 .hero__visuel { order: 3; width: min(100%, 34rem); margin-block: .25rem; }
 .hero__accroche {
   order: 4;
@@ -514,6 +525,7 @@ blockquote, figure { margin: 0; }
     grid-template-areas:
       "surtitre visuel"
       "titre    visuel"
+      "produit  visuel"
       "accroche visuel"
       "bouton   visuel"
       "signature visuel";
@@ -525,6 +537,7 @@ blockquote, figure { margin: 0; }
   }
   .hero .surtitre { grid-area: surtitre; align-self: end; }
   .hero__titre { grid-area: titre; font-size: clamp(7rem, 13vw, 13rem); }
+  .hero__produit { grid-area: produit; }
   .hero__visuel { grid-area: visuel; align-self: center; width: 100%; }
   .hero__accroche { grid-area: accroche; }
   .hero .bouton { grid-area: bouton; }
