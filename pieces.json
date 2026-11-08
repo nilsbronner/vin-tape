@@ -1,327 +1,349 @@
 {
-  "_note": "DONNÉES DE TEST : corriger les vraies combinaisons avant le lancement. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). images : chemins vers /assets/pieces/… (vide = dessin SVG généré avec les couleurs).",
+  "_note": "Numérotation PROVISOIRE (8 couleurs × 3 versions, déduite des photos du 6 novembre) : à corriger avec les vrais numéros. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). format = 60 ou 90 (vide = inconnu). La 8e couleur n'apparaît pas sur les photos : à renseigner.",
+  "versions": {
+    "chrome": {
+      "nom": "Chrome",
+      "description": "étiquette Chrome arc-en-ciel"
+    },
+    "alga": {
+      "nom": "Super Colour",
+      "description": "étiquette Super Colour"
+    },
+    "low-noise": {
+      "nom": "Low-Noise",
+      "description": "étiquette Low-Noise"
+    }
+  },
+  "caissons": {
+    "blanc": "caisson blanc",
+    "noir": "caisson noir",
+    "assorti": "caisson assorti"
+  },
   "palette": {
-    "menthe": "#8fd3bc",
-    "orange": "#f0782d",
-    "jaune": "#f3c43b",
-    "rouge": "#d8392b",
-    "bleu": "#2d5fd0",
-    "violet": "#7b52c4",
-    "blanc": "#efebe2",
-    "noir": "#1d1d1c"
+    "menthe": "#a6dbc6",
+    "sauge": "#d6dacb",
+    "orange": "#f39020",
+    "vert": "#6ccf1d",
+    "bleu": "#2e8de0",
+    "rouge": "#ee3a22",
+    "violet": "#a68ce0",
+    "couleur-8": "#c9c2b4"
+  },
+  "nomsCouleurs": {
+    "couleur-8": "8e couleur [À VALIDER]"
   },
   "pieces": [
     {
       "numero": 1,
-      "format": "C60",
-      "couleurFacade": "menthe",
-      "couleurArriere": "violet",
-      "etiquette": "blanc",
+      "couleur": "menthe",
+      "version": "chrome",
+      "caisson": "blanc",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": "/assets/pieces/packshot-menthe-chrome-v1.webp"
+      },
+      "modele3d": "/assets/modeles/menthe-chrome-v1.glb"
     },
     {
       "numero": 2,
-      "format": "C60",
-      "couleurFacade": "orange",
-      "couleurArriere": "menthe",
-      "etiquette": "noir",
+      "couleur": "menthe",
+      "version": "alga",
+      "caisson": "noir",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": "/assets/pieces/packshot-menthe-alga-v1.webp"
+      },
+      "modele3d": "/assets/modeles/menthe-alga-v1.glb"
     },
     {
       "numero": 3,
-      "format": "C90",
-      "couleurFacade": "jaune",
-      "couleurArriere": "bleu",
-      "etiquette": "menthe",
+      "couleur": "menthe",
+      "version": "low-noise",
+      "caisson": "assorti",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": "/assets/pieces/packshot-menthe-lownoise-v1.webp"
+      },
+      "modele3d": "/assets/modeles/menthe-lownoise-v1.glb"
     },
     {
       "numero": 4,
-      "format": "C60",
-      "couleurFacade": "rouge",
-      "couleurArriere": "blanc",
-      "etiquette": "menthe",
+      "couleur": "sauge",
+      "version": "chrome",
+      "caisson": "blanc",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 5,
-      "format": "C60",
-      "couleurFacade": "bleu",
-      "couleurArriere": "orange",
-      "etiquette": "orange",
-      "statut": "vendue",
+      "couleur": "sauge",
+      "version": "alga",
+      "caisson": "noir",
+      "format": "60",
+      "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 6,
-      "format": "C90",
-      "couleurFacade": "violet",
-      "couleurArriere": "bleu",
-      "etiquette": "blanc",
+      "couleur": "sauge",
+      "version": "low-noise",
+      "caisson": "assorti",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 7,
-      "format": "C60",
-      "couleurFacade": "blanc",
-      "couleurArriere": "menthe",
-      "etiquette": "noir",
+      "couleur": "orange",
+      "version": "chrome",
+      "caisson": "blanc",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": "/assets/pieces/packshot-orange-chrome-v1.webp"
+      },
+      "modele3d": "/assets/modeles/orange-chrome-v1.glb"
     },
     {
       "numero": 8,
-      "format": "C60",
-      "couleurFacade": "noir",
-      "couleurArriere": "rouge",
-      "etiquette": "jaune",
+      "couleur": "orange",
+      "version": "alga",
+      "caisson": "noir",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": "/assets/pieces/packshot-orange-alga-v1.webp"
+      },
+      "modele3d": "/assets/modeles/orange-alga-v1.glb"
     },
     {
       "numero": 9,
-      "format": "C90",
-      "couleurFacade": "menthe",
-      "couleurArriere": "violet",
-      "etiquette": "jaune",
+      "couleur": "orange",
+      "version": "low-noise",
+      "caisson": "assorti",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": "/assets/pieces/packshot-orange-lownoise-v1.webp"
+      },
+      "modele3d": "/assets/modeles/orange-lownoise-v1.glb"
     },
     {
       "numero": 10,
-      "format": "C60",
-      "couleurFacade": "orange",
-      "couleurArriere": "menthe",
-      "etiquette": "menthe",
+      "couleur": "vert",
+      "version": "chrome",
+      "caisson": "blanc",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 11,
-      "format": "C60",
-      "couleurFacade": "jaune",
-      "couleurArriere": "rouge",
-      "etiquette": "orange",
+      "couleur": "vert",
+      "version": "alga",
+      "caisson": "noir",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 12,
-      "format": "C90",
-      "couleurFacade": "rouge",
-      "couleurArriere": "blanc",
-      "etiquette": "blanc",
+      "couleur": "vert",
+      "version": "low-noise",
+      "caisson": "assorti",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": "/assets/pieces/packshot-vert-lownoise-v1.webp"
+      },
+      "modele3d": "/assets/modeles/vert-lownoise-v1.glb"
     },
     {
       "numero": 13,
-      "format": "C60",
-      "couleurFacade": "bleu",
-      "couleurArriere": "orange",
-      "etiquette": "blanc",
+      "couleur": "bleu",
+      "version": "chrome",
+      "caisson": "blanc",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 14,
-      "format": "C60",
-      "couleurFacade": "violet",
-      "couleurArriere": "bleu",
-      "etiquette": "noir",
-      "statut": "vendue",
+      "couleur": "bleu",
+      "version": "alga",
+      "caisson": "noir",
+      "format": "",
+      "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 15,
-      "format": "C90",
-      "couleurFacade": "blanc",
-      "couleurArriere": "noir",
-      "etiquette": "jaune",
+      "couleur": "bleu",
+      "version": "low-noise",
+      "caisson": "assorti",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 16,
-      "format": "C60",
-      "couleurFacade": "noir",
-      "couleurArriere": "jaune",
-      "etiquette": "menthe",
+      "couleur": "rouge",
+      "version": "chrome",
+      "caisson": "blanc",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 17,
-      "format": "C60",
-      "couleurFacade": "menthe",
-      "couleurArriere": "violet",
-      "etiquette": "orange",
+      "couleur": "rouge",
+      "version": "alga",
+      "caisson": "noir",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 18,
-      "format": "C90",
-      "couleurFacade": "orange",
-      "couleurArriere": "menthe",
-      "etiquette": "blanc",
+      "couleur": "rouge",
+      "version": "low-noise",
+      "caisson": "assorti",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 19,
-      "format": "C60",
-      "couleurFacade": "jaune",
-      "couleurArriere": "rouge",
-      "etiquette": "blanc",
+      "couleur": "violet",
+      "version": "chrome",
+      "caisson": "blanc",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 20,
-      "format": "C60",
-      "couleurFacade": "rouge",
-      "couleurArriere": "blanc",
-      "etiquette": "noir",
+      "couleur": "violet",
+      "version": "alga",
+      "caisson": "noir",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 21,
-      "format": "C90",
-      "couleurFacade": "bleu",
-      "couleurArriere": "orange",
-      "etiquette": "jaune",
+      "couleur": "violet",
+      "version": "low-noise",
+      "caisson": "assorti",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 22,
-      "format": "C60",
-      "couleurFacade": "violet",
-      "couleurArriere": "bleu",
-      "etiquette": "menthe",
+      "couleur": "couleur-8",
+      "version": "chrome",
+      "caisson": "blanc",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 23,
-      "format": "C60",
-      "couleurFacade": "blanc",
-      "couleurArriere": "noir",
-      "etiquette": "orange",
+      "couleur": "couleur-8",
+      "version": "alga",
+      "caisson": "noir",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     },
     {
       "numero": 24,
-      "format": "C90",
-      "couleurFacade": "noir",
-      "couleurArriere": "jaune",
-      "etiquette": "blanc",
+      "couleur": "couleur-8",
+      "version": "low-noise",
+      "caisson": "assorti",
+      "format": "",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "catalogue": "",
-        "detouree": ""
-      }
+        "packshot": ""
+      },
+      "modele3d": ""
     }
   ]
 }
