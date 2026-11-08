@@ -8,10 +8,24 @@ import { initHero } from './hero.js';
 import { initIdee } from './idee.js';
 import { initCatalogue } from './catalogue.js';
 import { initVoirEn3D } from './voir-en-3d.js';
+import { initBoutiques } from './boutiques.js';
 
 function majCompteurs(pieces) {
   const n = pieces.filter(estDisponible).length;
   document.querySelectorAll('[data-compteur]').forEach((el) => { el.textContent = n; });
+}
+
+// Numérote les pistes visibles dans l'ordre (A1, A2… B1, B2…) :
+// une section masquée (ex. « Où le voir » sans boutique) ne laisse pas de trou.
+function renumeroterPistes() {
+  const compteurs = {};
+  document.querySelectorAll('.piste').forEach((el) => {
+    if (el.closest('[hidden]')) return;
+    const face = (el.textContent.trim().match(/^[A-Z]/) || [''])[0];
+    if (!face) return;
+    compteurs[face] = (compteurs[face] || 0) + 1;
+    el.textContent = `${face}${compteurs[face]}`;
+  });
 }
 
 function initEntete() {
@@ -46,6 +60,8 @@ async function demarrer() {
   initIdee({ contenu });
   initCatalogue({ contenu, pieces, catalogue });
   initVoirEn3D({ contenu, pieces, catalogue });
+  await initBoutiques({ contenu });
+  renumeroterPistes();
   initRevele();
 }
 

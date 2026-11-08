@@ -94,8 +94,17 @@
     "voir3d": "Voir en 3D",
     "photoAVenir": "Photo à venir"
   },
-  "voirChezMoi": {
+  "ouLeVoir": {
     "piste": "B2",
+    "titre": "Où le voir",
+    "intro": "Avant de choisir, viens l'écouter en vrai.",
+    "expose": "Exposé ici",
+    "enVente": "En vente ici",
+    "depuis": "Depuis le",
+    "lienSite": "Site de la boutique"
+  },
+  "voirChezMoi": {
+    "piste": "B3",
     "titre": "Chez toi, en vrai",
     "intro": "Fais tourner la pièce en 3D. Sur ton téléphone, pose-la sur ton meuble avec l'appareil photo, à taille réelle.",
     "boutonAR": "Voir dans ma pièce",
@@ -108,7 +117,7 @@
     "confidentialite": "Rien n'est enregistré ni envoyé : tout se passe sur ton appareil."
   },
   "ficheTechnique": {
-    "piste": "B3",
+    "piste": "B4",
     "titre": "Fiche technique",
     "phraseSon": "[À REMPLIR] Une phrase sur la qualité du son.",
     "chiffres": [
@@ -153,7 +162,7 @@
     }
   },
   "avis": {
-    "piste": "B4",
+    "piste": "B5",
     "titre": "Ils l'ont écoutée",
     "liste": [
       {
