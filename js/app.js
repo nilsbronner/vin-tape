@@ -6,6 +6,7 @@ import {
 import { initRevele } from './revele.js';
 import { injecterStyle } from './cassette.js';
 import { initHero } from './hero.js';
+import { initIdee } from './idee.js';
 
 function majCompteurs(pieces) {
   const n = pieces.filter(estDisponible).length;
@@ -42,6 +43,7 @@ async function demarrer() {
   remplirPied(contenu);
   majCompteurs(pieces);
   initHero({ pieces, palette });
+  initIdee({ contenu, pieces, palette });
   initRevele();
 }
 
