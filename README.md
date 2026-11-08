@@ -31,7 +31,7 @@ Les balises du `<head>` de `index.html` (titre, description, Open Graph) sont à
 
 ## Changer le statut d'une pièce
 
-Dans **`pieces.json`**, chercher la pièce par son `"numero"` et passer `"statut"` à `"vendue"` (ou `"disponible"`). Le compteur « x/24 disponibles », le catalogue, le grisé et les boutons se mettent à jour seuls.
+Voir « Après une vente : passer la pièce en « vendue » » plus bas.
 
 Les 24 pièces ont été identifiées sur les photos du 6 novembre : 8 couleurs (menthe, sauge, orange, vert, bleu, rouge, violet, jaune) × 3 versions (`"chrome"` caisson blanc, `"alga"` étiquette Super Colour caisson noir, `"low-noise"` caisson assorti). Format, étiquette (`marque`) et caisson viennent des photos. **La numérotation reste provisoire** : corriger `numero` avant le lancement.
 
@@ -104,15 +104,35 @@ Ajouter un objet dans la liste `"boutiques"` :
 
 Les textes de la section (titre, intro, badges) sont dans `contenu.json` → `"ouLeVoir"`. Les numéros de piste (B1, B2…) se recalculent seuls selon les sections visibles.
 
-## Ajouter un lien Stripe
+## Paiement : un lien Stripe par pièce
 
-Créer un Payment Link dans Stripe pour la pièce, puis le coller dans `"lienPaiement"` :
+Chaque pièce a son propre **Payment Link** Stripe, collé dans `"lienPaiement"` de `pieces.json`. Il n'y a aucune clé Stripe dans le dépôt, et il ne doit jamais y en avoir : le site se contente d'envoyer vers la page de paiement hébergée par Stripe.
+
+Créer le lien dans le tableau de bord Stripe (Liens de paiement → Nouveau) :
+
+1. Produit : « Vin'tape n° 07 » (un produit par pièce), prix 850 € TTC.
+2. Dans les options du lien, **limiter le nombre de paiements à 1** (« Limit the number of payments » / « Limiter le nombre de paiements »). Après le premier paiement, Stripe désactive le lien : une pièce unique ne peut pas être vendue deux fois.
+3. Activer la collecte de l'adresse de livraison et du téléphone (nécessaires pour DHL ou UPS).
+4. Copier l'URL (`https://buy.stripe.com/…`) dans la pièce :
 
 ```json
 "lienPaiement": "https://buy.stripe.com/xxxxxxxx"
 ```
 
-Tant que le champ est vide, la pièce affiche « Bientôt disponible ». Le lien doit commencer par `https://`.
+Tant que le champ est vide, la pièce affiche « Bientôt disponible ». `python3 outils/valider.py` vérifie que chaque lien commence par `https://`.
+
+### Après une vente : passer la pièce en « vendue »
+
+Le site ne reçoit aucune notification de Stripe : la mise à jour est **manuelle**. Dès qu'un paiement arrive, dans `pieces.json`, passer la pièce en `"statut": "vendue"`, puis :
+
+```bash
+python3 outils/valider.py
+git add pieces.json
+git commit -m "Passe la pièce 07 en vendue"
+git push origin main
+```
+
+Le compteur « x/24 disponibles », le catalogue (pièce grisée, tampon « Vendue ») et la fiche se mettent à jour au déploiement suivant. Le lien Stripe limité à un paiement protège entre-temps contre une double vente.
 
 ## Photos, visuels et modèles 3D
 
