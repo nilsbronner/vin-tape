@@ -121,7 +121,7 @@ export function svgCassette({
   ${autonome ? `<style>${STYLE_K7}</style>` : ''}
   <rect class="k7-arriere" x="8" y="10" width="392" height="246" rx="17"/>
   <rect class="k7-facade" x="0" y="0" width="392" height="246" rx="17"/>
-  <rect x=".75" y=".75" width="390.5" height="244.5" rx="16.5" fill="none" stroke="#fff" stroke-opacity=".16" stroke-width="1.5"/>
+  <rect x=".75" y=".75" width="390.5" height="244.5" rx="16.5" fill="none" stroke="#000" stroke-opacity=".1" stroke-width="1.5"/>
   <g fill="#000" fill-opacity=".28">
     <circle cx="15" cy="15" r="4.5"/><circle cx="377" cy="15" r="4.5"/>
     <circle cx="15" cy="231" r="4.5"/><circle cx="377" cy="231" r="4.5"/>
