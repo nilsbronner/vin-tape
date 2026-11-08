@@ -203,6 +203,7 @@ blockquote, figure { margin: 0; }
 .section__tete { margin-bottom: clamp(2rem, 5vw, 3.5rem); max-width: 52rem; }
 .section__tete h2 {
   font-family: var(--police-titre);
+  line-height: 1;
   font-size: clamp(2.8rem, 9vw, 6.5rem);
   text-transform: uppercase;
   letter-spacing: -.005em;
@@ -500,4 +501,97 @@ blockquote, figure { margin: 0; }
   .hero .bouton { grid-area: bouton; }
   .hero__signature { grid-area: signature; align-self: start; }
   .hero__legende { text-align: center; }
+}
+
+/* ==========================================================================
+   L'idée : cassette → enceinte
+   ========================================================================== */
+.idee {
+  --phrase: 1; --hp: 1; --annot: 1; --conn: 1;
+  position: relative;
+  padding: clamp(5rem, 12vw, 9rem) 0;
+  background: linear-gradient(var(--fond), var(--fond-2) 30%, var(--fond-2) 70%, var(--fond));
+}
+.idee__scene {
+  display: grid;
+  gap: clamp(1.25rem, 3vh, 2.5rem);
+  align-content: center;
+  padding: 0 var(--marge);
+  max-width: calc(var(--largeur) + 2 * var(--marge));
+  margin-inline: auto;
+}
+.idee__tete { margin-bottom: 0; }
+.idee__phrase {
+  font-family: var(--police-titre);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.2rem, 7.5vw, 5.5rem);
+  line-height: 1.04;
+  text-wrap: balance;
+  opacity: var(--phrase);
+  transform: translateY(calc((1 - var(--phrase)) * 30px));
+}
+.idee__visuel { display: grid; gap: clamp(1rem, 3vh, 2rem); align-items: center; }
+.idee__cassette {
+  width: min(100%, 34rem);
+  justify-self: center;
+  transform: rotate(calc((1 - var(--hp)) * -7deg)) scale(calc(.94 + .06 * var(--hp)));
+  filter: drop-shadow(0 24px 34px rgb(0 0 0 / .5));
+}
+.idee__cassette svg { width: 100%; height: auto; }
+.idee__etapes {
+  list-style: none;
+  counter-reset: etape;
+  display: grid; gap: .6rem;
+  font-size: clamp(.95rem, 2.6vw, 1.15rem);
+}
+.idee__etape {
+  counter-increment: etape;
+  display: grid; grid-template-columns: 1.9rem 1fr; gap: .75rem; align-items: center;
+  line-height: 1.35;
+}
+.idee__etape::before {
+  content: counter(etape);
+  display: grid; place-items: center;
+  width: 1.9rem; height: 1.9rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-texte);
+  font-family: var(--police-mono);
+  font-size: .85rem;
+}
+.idee__connectique {
+  list-style: none;
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  opacity: var(--conn);
+  transform: translateY(calc((1 - var(--conn)) * 20px));
+}
+.idee__connectique li {
+  padding: .45rem .95rem;
+  border: 1px solid var(--ligne);
+  border-radius: 999px;
+  font-family: var(--police-mono);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--fond);
+}
+
+/* Version animée (JS actif, mouvement autorisé) */
+.idee--anime { height: 320vh; padding: 0; }
+.idee--anime .idee__scene {
+  position: sticky; top: 0;
+  min-height: 100vh; min-height: 100svh;
+  padding-top: 4.5rem; padding-bottom: 2rem;
+}
+.idee--anime .idee__etape { opacity: .18; transform: translateX(-8px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.idee--anime .idee__etape.est-active { opacity: 1; transform: none; }
+
+@media (min-width: 900px) {
+  .idee__visuel { grid-template-columns: 7fr 5fr; gap: 4rem; }
+  .idee__etapes { gap: 1.1rem; }
+}
+@media (max-height: 700px) and (max-width: 899px) {
+  .idee__cassette { width: min(100%, 22rem); }
+  .idee__phrase { font-size: 2rem; }
 }
