@@ -19,7 +19,7 @@ Tous les textes sont dans **`contenu.json`** : accroche, histoire, savoir-faire,
 - `[À REMPLIR]` : texte manquant. `[À VALIDER]` : info à confirmer. Les deux s'affichent en surbrillance jaune sur le site tant qu'ils sont là.
 - **Accroche** : `"accroche"`. Les pistes non retenues sont dans `"accrochesAlternatives"`.
 - **Phrase d'ouverture de « L'idée »** : `"idee.phraseOuverture.version"` vaut `"question"` ou `"affirmation"`.
-- **Vraies dimensions** : `"ficheTechnique.dimensionsCm"` (largeur, hauteur, profondeur en cm). Le modèle 3D et la réalité augmentée s'y ajustent automatiquement. Tant qu'elles sont vides, le site affiche des dimensions provisoires (environ 45 × 23 × 20 cm) marquées « à valider ».
+- **Vraies dimensions** : `"ficheTechnique.dimensionsCm"` (largeur, hauteur, profondeur en cm). Le modèle 3D et la réalité augmentée s'y ajustent automatiquement. Tant qu'elles sont vides, le site affiche des dimensions provisoires (environ 45 × 23 × 24 cm) marquées « à valider ».
 - **Repères de la section « L'idée »** : `"idee.facade.reperes"` (positions en % sur la photo de façade).
 - **Portrait** : `"histoire.portrait.src"` (par exemple `/assets/img/portrait-eaz-v1.webp`).
 - **Avis vidéo** : `"video"` et `"poster"` de chaque avis (chemins vers des fichiers du dépôt).

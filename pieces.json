@@ -1,5 +1,5 @@
 {
-  "_note": "Numérotation PROVISOIRE (8 couleurs × 3 versions, déduite des photos du 6 novembre) : à corriger avec les vrais numéros. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). format = 60 ou 90 (vide = inconnu). La 8e couleur n'apparaît pas sur les photos : à renseigner.",
+  "_note": "Numérotation PROVISOIRE (8 couleurs × 3 versions, déduite des photos du 6 novembre) : à corriger avec les vrais numéros. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). format = 60 ou 90 (vide = inconnu). La 8e couleur n'apparaît pas sur les photos : à renseigner. caisson = \"blanc\", \"noir\", \"assorti\" ou un objet {\"dessus\", \"cotes\", \"dos\", \"dessous\"} pour un caisson bicolore (regénérer les modèles avec outils/generer_modeles.py).",
   "versions": {
     "chrome": {
       "nom": "Chrome",
@@ -42,9 +42,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-chrome-v1.webp"
+        "packshot": "/assets/pieces/packshot-menthe-chrome-v2.webp"
       },
-      "modele3d": "/assets/modeles/menthe-chrome-v1.glb"
+      "modele3d": "/assets/modeles/menthe-chrome-v2.glb"
     },
     {
       "numero": 2,
@@ -55,9 +55,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-alga-v1.webp"
+        "packshot": "/assets/pieces/packshot-menthe-alga-v2.webp"
       },
-      "modele3d": "/assets/modeles/menthe-alga-v1.glb"
+      "modele3d": "/assets/modeles/menthe-alga-v2.glb"
     },
     {
       "numero": 3,
@@ -68,9 +68,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-lownoise-v1.webp"
+        "packshot": "/assets/pieces/packshot-menthe-lownoise-v2.webp"
       },
-      "modele3d": "/assets/modeles/menthe-lownoise-v1.glb"
+      "modele3d": "/assets/modeles/menthe-lownoise-v2.glb"
     },
     {
       "numero": 4,
@@ -120,9 +120,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-chrome-v1.webp"
+        "packshot": "/assets/pieces/packshot-orange-chrome-v2.webp"
       },
-      "modele3d": "/assets/modeles/orange-chrome-v1.glb"
+      "modele3d": "/assets/modeles/orange-chrome-v2.glb"
     },
     {
       "numero": 8,
@@ -133,9 +133,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-alga-v1.webp"
+        "packshot": "/assets/pieces/packshot-orange-alga-v2.webp"
       },
-      "modele3d": "/assets/modeles/orange-alga-v1.glb"
+      "modele3d": "/assets/modeles/orange-alga-v2.glb"
     },
     {
       "numero": 9,
@@ -146,9 +146,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-lownoise-v1.webp"
+        "packshot": "/assets/pieces/packshot-orange-lownoise-v2.webp"
       },
-      "modele3d": "/assets/modeles/orange-lownoise-v1.glb"
+      "modele3d": "/assets/modeles/orange-lownoise-v2.glb"
     },
     {
       "numero": 10,
@@ -185,9 +185,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-vert-lownoise-v1.webp"
+        "packshot": "/assets/pieces/packshot-vert-lownoise-v2.webp"
       },
-      "modele3d": "/assets/modeles/vert-lownoise-v1.glb"
+      "modele3d": "/assets/modeles/vert-lownoise-v2.glb"
     },
     {
       "numero": 13,

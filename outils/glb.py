@@ -118,3 +118,40 @@ def cylindre(cx, cy, cz, r, h, seg=28):
     for k in range(seg):
         ind += [centre, centre + 2 + k, centre + 1 + k]
     return pos, nor, None, ind
+
+def boite_arrondie(centre, taille, rayon, n=6):
+    """Pavé aux arêtes arrondies. Renvoie {nom_face: (positions, normales, uvs, indices)}.
+    Les uv de chaque face vont de 0 à 1 (haut-gauche = 0,0), comme face_boite."""
+    demi = [t / 2 for t in taille]
+    r = min(rayon, *[d * 0.99 for d in demi])
+    def echantillons(h):
+        bande = [(h - r) + r * k / n for k in range(n + 1)]
+        return [-x for x in reversed(bande)] + bande[1:]
+    faces = {}
+    for nom, (nv, uv_, vv) in FACES.items():
+        axe_n = next(i for i in range(3) if nv[i]); s_n = nv[axe_n]
+        axe_u = next(i for i in range(3) if uv_[i]); s_u = uv_[axe_u]
+        axe_v = next(i for i in range(3) if vv[i]); s_v = vv[axe_v]
+        au, av = echantillons(demi[axe_u]), echantillons(demi[axe_v])
+        pos, nor, uvs = [], [], []
+        for b in av:
+            for a in au:
+                p = [0.0, 0.0, 0.0]
+                p[axe_n] = s_n * demi[axe_n]
+                p[axe_u] = s_u * a
+                p[axe_v] = s_v * b
+                inner = [max(-(demi[i] - r), min(demi[i] - r, p[i])) for i in range(3)]
+                d = [p[i] - inner[i] for i in range(3)]
+                l = math.sqrt(sum(x * x for x in d)) or 1.0
+                nn = [x / l for x in d]
+                pos.append(tuple(centre[i] + inner[i] + r * nn[i] for i in range(3)))
+                nor.append(tuple(nn))
+                uvs.append(((a + demi[axe_u]) / (2 * demi[axe_u]), (b + demi[axe_v]) / (2 * demi[axe_v])))
+        ind, cu = [], len(au)
+        for j in range(len(av) - 1):
+            for i in range(cu - 1):
+                p00, p10 = j * cu + i, j * cu + i + 1
+                p01, p11 = p00 + cu, p10 + cu
+                ind += [p00, p11, p10, p00, p01, p11]
+        faces[nom] = (pos, nor, uvs, ind)
+    return faces
