@@ -1,4 +1,6 @@
 {
+  "_noteUrlSite": "Adresse du site (sans / final). Après modification, lancer : python3 outils/appliquer_domaine.py (met à jour canonical, og:url, images de partage, sitemap.xml et robots.txt).",
+  "urlSite": "https://vin-tape-git-main-nils-projects11.vercel.app",
   "_note": "Tous les textes du site. [À REMPLIR] = texte manquant, [À VALIDER] = info à confirmer avant publication. Les marqueurs s'affichent en surbrillance sur le site tant qu'ils sont là.",
   "accroche": "Rewind. Play. Même frisson, vrai son.",
   "_noteAccroche": "Pour changer d'accroche : copier l'une des accrochesPossibles dans \"accroche\". Penser aussi à og:description dans index.html.",

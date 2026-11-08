@@ -185,12 +185,27 @@ git push origin main
 
 Chaque push sur `main` déploie en production. Chaque branche ou pull request a sa propre URL de preview Vercel.
 
+## Changer l'adresse du site
+
+L'adresse est écrite à un seul endroit : `contenu.json` → `"urlSite"` (sans `/` final). Après l'avoir changée :
+
+```bash
+python3 outils/appliquer_domaine.py
+```
+
+Le script recopie l'adresse dans `index.html` (canonical, `og:url`, images de partage, données produit), régénère `sitemap.xml` et `robots.txt`. Elle pointe pour l'instant vers l'adresse Vercel de la branche `main`.
+
 ## À faire avant le lancement
 
-- Remplacer `https://vintape.vercel.app` par le vrai domaine dans `index.html` (canonical, Open Graph, JSON-LD), `robots.txt` et `sitemap.xml`.
-- Retirer tous les marqueurs `[À REMPLIR]` et `[À VALIDER]` : `grep -rn "À REMPLIR\|À VALIDER" contenu.json`.
-- Remplacer les données de test de `pieces.json`.
+```bash
+python3 outils/valider.py
+grep -rn "À REMPLIR\|À VALIDER\|À DÉFINIR" contenu.json pieces.json index.html
+```
 
+- Vraie numérotation, dimensions et poids, puis `outils/generer_epingles.py`.
+- Un Payment Link Stripe (limité à 1 paiement) par pièce.
+- Textes [À REMPLIR] / [À VALIDER] / [À DÉFINIR] : artiste, savoir-faire, origine, frais de livraison, pages légales, pied de page, contact.
+- Adresse définitive (`urlSite`) et code de vérification Pinterest.
 ## Organisation du code
 
 | Fichier | Rôle |
@@ -199,8 +214,8 @@ Chaque push sur `main` déploie en production. Chaque branche ou pull request a 
 | `contenu.json`, `pieces.json`, `boutiques.json` | Textes, pièces, boutiques |
 | `css/vintape.css` | Styles (mobile first) |
 | `js/app.js` | Point d'entrée |
-| `js/hero.js`, `js/idee.js`, `js/catalogue.js`, `js/boutiques.js`, `js/voir-en-3d.js` | Une section chacun |
-| `outils/` | Génération des textures et modèles 3D à partir des photos (hors site) |
+| `js/hero.js`, `js/idee.js`, `js/catalogue.js`, `js/fiche-piece.js`, `js/boutiques.js`, `js/videos.js`, `js/voir-en-3d.js` | Une section ou un module chacun |
+| `outils/` | Scripts hors site : modèles 3D (`generer_modeles.py`, `packshots.js`), photos (`optimiser_photos.py`, `extraire_photos.py`), contrôle (`valider.py`), épingles (`generer_epingles.py`), adresse (`appliquer_domaine.py`) |
 | `js/contenu.js`, `js/sections.js` | Remplissage des textes |
 | `assets/` | Polices, images. Cache d'un an : changer le nom d'un fichier (`-v2`) pour le remplacer |
 
