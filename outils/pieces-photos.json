@@ -1,15 +1,176 @@
 {
-  "_note": "Coins de la façade (haut-gauche, haut-droit, bas-droit, bas-gauche) en pixels dans la photo originale (dossier Drive « Vin'tape », photos du 6 novembre 2026). Les photos sont dans /originals/ (non versionné).",
+  "_note": "Coins (haut-gauche, haut-droit, bas-droit, bas-gauche) en pixels dans la photo originale, après rotation EXIF (photos du 6 novembre 2026, dossier Drive « Vin'tape », dans /originals/, non versionné). faces = plaque de façade ; dos = panneau arrière de la pièce ; dos_par_couleur = repli si une pièce n'a pas de photo de dos.",
   "faces": {
-    "menthe-chrome":   { "photo": "20261106_103129", "coins": [[1040,362],[2848,392],[2776,1284],[1084,1280]] },
-    "menthe-alga":     { "photo": "20261106_103540", "coins": [[1162,466],[2844,490],[2776,1326],[1224,1334]] },
-    "menthe-lownoise": { "photo": "20261106_104031", "coins": [[980,430],[2736,434],[2696,1326],[1044,1334]] },
-    "orange-chrome":   { "photo": "20261106_111351", "coins": [[990,430],[2750,430],[2696,1326],[1064,1334]] },
-    "orange-alga":     { "photo": "20261106_111540", "coins": [[860,514],[2724,526],[2672,1462],[944,1470]] },
-    "orange-lownoise": { "photo": "20261106_111717", "coins": [[1064,460],[2910,454],[2856,1398],[1136,1406]] },
-    "vert-lownoise":   { "photo": "20261106_120139", "coins": [[1006,274],[2476,346],[2470,1374],[1090,1090]] }
+    "menthe-chrome": {
+      "photo": "20261106_103129",
+      "coins": [
+        [
+          1040,
+          362
+        ],
+        [
+          2848,
+          392
+        ],
+        [
+          2776,
+          1284
+        ],
+        [
+          1084,
+          1280
+        ]
+      ]
+    },
+    "menthe-alga": {
+      "photo": "20261106_103540",
+      "coins": [
+        [
+          1162,
+          466
+        ],
+        [
+          2844,
+          490
+        ],
+        [
+          2776,
+          1326
+        ],
+        [
+          1224,
+          1334
+        ]
+      ]
+    },
+    "menthe-lownoise": {
+      "photo": "20261106_104031",
+      "coins": [
+        [
+          980,
+          430
+        ],
+        [
+          2736,
+          434
+        ],
+        [
+          2696,
+          1326
+        ],
+        [
+          1044,
+          1334
+        ]
+      ]
+    },
+    "orange-chrome": {
+      "photo": "20261106_111351",
+      "coins": [
+        [
+          990,
+          430
+        ],
+        [
+          2750,
+          430
+        ],
+        [
+          2696,
+          1326
+        ],
+        [
+          1064,
+          1334
+        ]
+      ]
+    },
+    "orange-alga": {
+      "photo": "20261106_111540",
+      "coins": [
+        [
+          860,
+          514
+        ],
+        [
+          2724,
+          526
+        ],
+        [
+          2672,
+          1462
+        ],
+        [
+          944,
+          1470
+        ]
+      ]
+    },
+    "orange-lownoise": {
+      "photo": "20261106_111717",
+      "coins": [
+        [
+          1064,
+          460
+        ],
+        [
+          2910,
+          454
+        ],
+        [
+          2856,
+          1398
+        ],
+        [
+          1136,
+          1406
+        ]
+      ]
+    },
+    "vert-lownoise": {
+      "photo": "20261106_120139",
+      "coins": [
+        [
+          1006,
+          274
+        ],
+        [
+          2476,
+          346
+        ],
+        [
+          2470,
+          1374
+        ],
+        [
+          1090,
+          1090
+        ]
+      ]
+    }
   },
-  "dos": {
-    "blanc": { "photo": "20261106_103234", "coins": [[1094,742],[2700,738],[2604,1374],[1200,1390]] }
-  }
+  "dos_par_couleur": {
+    "blanc": {
+      "photo": "20261106_103234",
+      "coins": [
+        [
+          1094,
+          742
+        ],
+        [
+          2700,
+          738
+        ],
+        [
+          2604,
+          1374
+        ],
+        [
+          1200,
+          1390
+        ]
+      ]
+    }
+  },
+  "dos": {}
 }

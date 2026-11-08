@@ -125,7 +125,8 @@ def modele(cle, config_caisson, donnees):
     for nom_face, cle_face in (('dessus', 'dessus'), ('gauche', 'cotes'), ('droite', 'cotes'), ('dessous', 'dessous'), ('avant', 'cotes')):
         groupes.setdefault(faces_caisson[cle_face], []).append(caisson[nom_face])
     prims = [(*fusion(morceaux), mat(nom)) for nom, morceaux in groupes.items()]
-    dos = donnees['dos'].get(faces_caisson['dos'])
+    # Dos : photo de cette pièce si elle existe, sinon photo d'un dos de même couleur
+    dos = donnees.get('dos', {}).get(cle) or donnees.get('dos_par_couleur', {}).get(faces_caisson['dos'])
     if dos:
         t_dos = s.image(jpeg(redresser(dos['photo'], dos['coins'], 1024, 420), 82))
         prims.append((*caisson['arriere'], s.materiau('dos-photo', texture=t_dos, rugosite=0.5)))
