@@ -18,6 +18,24 @@
     "signature": "Une œuvre d'EAZ",
     "bouton": "Découvrir les 24 pièces"
   },
+  "videos": {
+    "_note": "url = lien Vimeo (https://vimeo.com/123456789, ou https://vimeo.com/123456789/abcdef pour une vidéo non répertoriée). vignette = image locale (WebP, via outils/optimiser_photos.py) affichée avant le clic. Aucune connexion à Vimeo tant que le visiteur n'a pas cliqué.",
+    "lancer": "Lancer la vidéo",
+    "avertissement": "La lecture charge le lecteur Vimeo (sans suivi).",
+    "aVenir": "Vidéo à venir",
+    "videoDemo": {
+      "titre": "Écoute-la jouer",
+      "url": "",
+      "vignette": "",
+      "alt": "Démonstration d'une enceinte Vin'tape"
+    },
+    "videoArtiste": {
+      "titre": "EAZ, dans son atelier",
+      "url": "",
+      "vignette": "",
+      "alt": "Portrait vidéo de l'artiste EAZ"
+    }
+  },
   "histoire": {
     "piste": "A1",
     "titre": "L'artiste",

@@ -803,6 +803,29 @@ blockquote, figure { margin: 0; }
 .appel__selection:empty { display: none; }
 
 /* ==========================================================================
+   Vidéos (Vimeo au clic)
+   ========================================================================== */
+.section--courte { padding-top: 0; padding-bottom: clamp(2rem, 6vw, 4rem); }
+.video { margin-top: 2rem; }
+.video--large { margin-top: 0; }
+.video__cadre { position: relative; aspect-ratio: 16 / 9; border-radius: var(--rayon); overflow: hidden; background: var(--texte); }
+.video__cadre iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video__lancer { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; cursor: pointer; color: #fff; background: linear-gradient(135deg, #2d2a25, #121110); }
+.video__lancer img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video__play {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  width: 76px; height: 76px; border-radius: 50%;
+  background: var(--accent-fonce);
+  box-shadow: 0 10px 30px rgb(0 0 0 / .35);
+  transition: transform .25s var(--ease);
+}
+.video__play::before { content: ""; position: absolute; left: 31px; top: 24px; border-left: 22px solid #fff; border-top: 14px solid transparent; border-bottom: 14px solid transparent; }
+.video__lancer:hover .video__play { transform: scale(1.08); }
+.video__titre { position: absolute; left: 1rem; bottom: .9rem; font-family: var(--police-mono); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-shadow: 0 1px 6px rgb(0 0 0 / .6); }
+.video__cadre--vide { display: grid; place-content: center; justify-items: center; gap: .5rem; color: var(--discret); background: repeating-linear-gradient(135deg, transparent 0 14px, rgb(34 31 27 / .035) 14px 28px), #e4d6bf; border: 1px dashed var(--ligne); font-size: .9rem; text-align: center; padding: 1rem; }
+.video__note { margin-top: .5rem; font-size: .8rem; color: var(--discret); }
+
+/* ==========================================================================
    Fiche d'une pièce
    ========================================================================== */
 .carte__ouvrir { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: inherit; }
