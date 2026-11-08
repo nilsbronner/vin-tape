@@ -1,0 +1,327 @@
+{
+  "_note": "DONNÉES DE TEST : corriger les vraies combinaisons avant le lancement. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). images : chemins vers /assets/pieces/… (vide = dessin SVG généré avec les couleurs).",
+  "palette": {
+    "menthe": "#8fd3bc",
+    "orange": "#f0782d",
+    "jaune": "#f3c43b",
+    "rouge": "#d8392b",
+    "bleu": "#2d5fd0",
+    "violet": "#7b52c4",
+    "blanc": "#efebe2",
+    "noir": "#1d1d1c"
+  },
+  "pieces": [
+    {
+      "numero": 1,
+      "format": "C60",
+      "couleurFacade": "menthe",
+      "couleurArriere": "violet",
+      "etiquette": "blanc",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 2,
+      "format": "C60",
+      "couleurFacade": "orange",
+      "couleurArriere": "menthe",
+      "etiquette": "noir",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 3,
+      "format": "C90",
+      "couleurFacade": "jaune",
+      "couleurArriere": "bleu",
+      "etiquette": "menthe",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 4,
+      "format": "C60",
+      "couleurFacade": "rouge",
+      "couleurArriere": "blanc",
+      "etiquette": "menthe",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 5,
+      "format": "C60",
+      "couleurFacade": "bleu",
+      "couleurArriere": "orange",
+      "etiquette": "orange",
+      "statut": "vendue",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 6,
+      "format": "C90",
+      "couleurFacade": "violet",
+      "couleurArriere": "bleu",
+      "etiquette": "blanc",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 7,
+      "format": "C60",
+      "couleurFacade": "blanc",
+      "couleurArriere": "menthe",
+      "etiquette": "noir",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 8,
+      "format": "C60",
+      "couleurFacade": "noir",
+      "couleurArriere": "rouge",
+      "etiquette": "jaune",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 9,
+      "format": "C90",
+      "couleurFacade": "menthe",
+      "couleurArriere": "violet",
+      "etiquette": "jaune",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 10,
+      "format": "C60",
+      "couleurFacade": "orange",
+      "couleurArriere": "menthe",
+      "etiquette": "menthe",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 11,
+      "format": "C60",
+      "couleurFacade": "jaune",
+      "couleurArriere": "rouge",
+      "etiquette": "orange",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 12,
+      "format": "C90",
+      "couleurFacade": "rouge",
+      "couleurArriere": "blanc",
+      "etiquette": "blanc",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 13,
+      "format": "C60",
+      "couleurFacade": "bleu",
+      "couleurArriere": "orange",
+      "etiquette": "blanc",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 14,
+      "format": "C60",
+      "couleurFacade": "violet",
+      "couleurArriere": "bleu",
+      "etiquette": "noir",
+      "statut": "vendue",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 15,
+      "format": "C90",
+      "couleurFacade": "blanc",
+      "couleurArriere": "noir",
+      "etiquette": "jaune",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 16,
+      "format": "C60",
+      "couleurFacade": "noir",
+      "couleurArriere": "jaune",
+      "etiquette": "menthe",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 17,
+      "format": "C60",
+      "couleurFacade": "menthe",
+      "couleurArriere": "violet",
+      "etiquette": "orange",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 18,
+      "format": "C90",
+      "couleurFacade": "orange",
+      "couleurArriere": "menthe",
+      "etiquette": "blanc",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 19,
+      "format": "C60",
+      "couleurFacade": "jaune",
+      "couleurArriere": "rouge",
+      "etiquette": "blanc",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 20,
+      "format": "C60",
+      "couleurFacade": "rouge",
+      "couleurArriere": "blanc",
+      "etiquette": "noir",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 21,
+      "format": "C90",
+      "couleurFacade": "bleu",
+      "couleurArriere": "orange",
+      "etiquette": "jaune",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 22,
+      "format": "C60",
+      "couleurFacade": "violet",
+      "couleurArriere": "bleu",
+      "etiquette": "menthe",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 23,
+      "format": "C60",
+      "couleurFacade": "blanc",
+      "couleurArriere": "noir",
+      "etiquette": "orange",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    },
+    {
+      "numero": 24,
+      "format": "C90",
+      "couleurFacade": "noir",
+      "couleurArriere": "jaune",
+      "etiquette": "blanc",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "catalogue": "",
+        "detouree": ""
+      }
+    }
+  ]
+}
