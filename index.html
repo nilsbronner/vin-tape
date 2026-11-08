@@ -2,19 +2,218 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Vin'tape — 24 enceintes-cassettes uniques par EAZ</title>
-  <meta name="description" content="Vin'tape, première édition de 24 enceintes-cassettes uniques et numérotées, œuvre de l'artiste plasticien EAZ (Strasbourg).">
-  <meta name="theme-color" content="#111110">
-  <link rel="stylesheet" href="/css/base.css">
+  <meta name="description" content="Vin'tape, première édition de 24 enceintes-cassettes uniques et numérotées, œuvre de l'artiste plasticien EAZ (Strasbourg). Bluetooth, jack, vrai son. 850 € TTC.">
+  <meta name="theme-color" content="#121211">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://vintape.vercel.app/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Vin'tape">
+  <meta property="og:title" content="Vin'tape — 24 enceintes-cassettes uniques par EAZ">
+  <meta property="og:description" content="Rewind. Play. Même frisson, vrai son. Première édition de 24 pièces numérotées, 850 € TTC.">
+  <meta property="og:url" content="https://vintape.vercel.app/">
+  <meta property="og:image" content="https://vintape.vercel.app/assets/img/og-v1.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Une enceinte Vin'tape en forme de cassette audio">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="/assets/fonts/big-shoulders-display-v1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/dm-sans-v1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/contenu.json" as="fetch" crossorigin>
+  <link rel="preload" href="/pieces.json" as="fetch" crossorigin>
+  <link rel="modulepreload" href="/js/cassette.js">
+  <link rel="modulepreload" href="/js/donnees.js">
+  <link rel="stylesheet" href="/css/vintape.css">
+  <script type="module" src="/js/app.js"></script>
 </head>
 <body>
-  <main class="squelette">
-    <p class="squelette__face">Face A</p>
-    <h1>Vin'tape</h1>
-    <p>Rewind. Play. Même frisson, vrai son.</p>
-    <p class="squelette__note">Site en construction — mise en ligne fin novembre 2026.</p>
-    <p class="squelette__signature">EAZ</p>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete" data-entete>
+    <a class="entete__logo" href="#accueil" aria-label="Vin’tape, retour en haut">Vin’tape</a>
+    <p class="entete__stock"><span data-compteur>–</span>/24 <span data-contenu="catalogue.disponibles">disponibles</span></p>
+    <a class="bouton bouton--petit" href="#catalogue" data-contenu="entete.reserver">Réserver</a>
+  </header>
+
+  <main id="contenu">
+
+    <!-- 1. Hero -->
+    <section class="hero" id="accueil" aria-labelledby="hero-titre">
+      <div class="hero__texte">
+        <p class="surtitre" data-contenu="hero.surtitre"></p>
+        <h1 class="hero__titre" id="hero-titre">Vin’tape</h1>
+        <p class="hero__accroche" data-contenu="accroche"></p>
+        <a class="bouton" href="#catalogue" data-contenu="hero.bouton">Découvrir les 24 pièces</a>
+        <p class="hero__signature" data-contenu="hero.signature"></p>
+      </div>
+      <figure class="hero__visuel">
+        <div class="hero__cassette" data-hero-cassette></div>
+        <figcaption class="hero__legende" data-hero-legende aria-live="off"></figcaption>
+      </figure>
+      <a class="hero__suite" href="#artiste" aria-label="Faire défiler vers la suite">
+        <span aria-hidden="true">▶▶</span>
+      </a>
+    </section>
+
+    <!-- 2. Histoire de l'artiste -->
+    <section class="section artiste" id="artiste" aria-labelledby="artiste-titre">
+      <header class="section__tete revele">
+        <p class="piste" data-contenu="histoire.piste"></p>
+        <h2 id="artiste-titre" data-contenu="histoire.titre">L'artiste</h2>
+      </header>
+      <div class="artiste__grille">
+        <figure class="artiste__portrait revele" data-portrait></figure>
+        <div class="artiste__texte revele">
+          <div class="prose" data-contenu-paragraphes="histoire.texte"></div>
+          <blockquote class="citation">
+            <p data-contenu="histoire.citation"></p>
+            <footer>— <span data-contenu="histoire.auteurCitation"></span></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. L'idée du produit -->
+    <section class="idee" id="idee" aria-labelledby="idee-titre" data-idee>
+      <div class="idee__scene">
+        <header class="section__tete idee__tete">
+          <p class="piste" data-contenu="idee.piste"></p>
+          <h2 id="idee-titre" class="idee__phrase" data-phrase-ouverture></h2>
+        </header>
+        <div class="idee__visuel">
+          <div class="idee__cassette" data-idee-cassette></div>
+          <ol class="idee__etapes" data-idee-etapes></ol>
+        </div>
+        <ul class="idee__connectique" data-idee-connectique aria-label="Connectique et réglages"></ul>
+      </div>
+    </section>
+
+    <!-- 4. Intention et savoir-faire -->
+    <section class="section savoir-faire" id="savoir-faire" aria-labelledby="sf-titre">
+      <header class="section__tete revele">
+        <p class="piste" data-contenu="savoirFaire.piste"></p>
+        <h2 id="sf-titre" data-contenu="savoirFaire.titre"></h2>
+      </header>
+      <div class="savoir-faire__grille">
+        <div class="prose revele" data-contenu-paragraphes="savoirFaire.texte"></div>
+        <ul class="partenaires revele" data-partenaires></ul>
+      </div>
+    </section>
+
+    <!-- 5. Catalogue -->
+    <section class="section catalogue" id="catalogue" aria-labelledby="catalogue-titre">
+      <header class="section__tete revele">
+        <p class="piste" data-contenu="catalogue.piste"></p>
+        <h2 id="catalogue-titre" data-contenu="catalogue.titre"></h2>
+        <p class="section__intro" data-contenu="catalogue.intro"></p>
+        <p class="compteur"><strong data-compteur>–</strong>/24 <span data-contenu="catalogue.disponibles"></span></p>
+      </header>
+      <div class="catalogue__cadre">
+        <button class="catalogue__fleche catalogue__fleche--prec" type="button" data-cat-prec aria-label="Pièces précédentes">◀◀</button>
+        <ul class="catalogue__piste" data-catalogue tabindex="0" aria-label="Les 24 pièces, défilement horizontal"></ul>
+        <button class="catalogue__fleche catalogue__fleche--suiv" type="button" data-cat-suiv aria-label="Pièces suivantes">▶▶</button>
+      </div>
+      <div class="catalogue__bande" aria-hidden="true"><span data-cat-progression></span></div>
+    </section>
+
+    <!-- 6. Voir chez moi -->
+    <section class="section vcm" id="chez-moi" aria-labelledby="vcm-titre" data-vcm>
+      <header class="section__tete revele">
+        <p class="piste" data-contenu="voirChezMoi.piste"></p>
+        <h2 id="vcm-titre" data-contenu="voirChezMoi.titre"></h2>
+        <p class="section__intro" data-contenu="voirChezMoi.intro"></p>
+      </header>
+      <div class="vcm__grille">
+        <div class="vcm__scene">
+          <canvas class="vcm__canvas" data-vcm-canvas tabindex="0" role="img" aria-describedby="vcm-aide"></canvas>
+        </div>
+        <div class="vcm__commandes">
+          <p class="vcm__conseil" data-contenu="voirChezMoi.conseil"></p>
+          <div class="vcm__photos">
+            <label class="bouton vcm__bouton-photo" data-vcm-camera-label>
+              <span data-contenu="voirChezMoi.boutonPhoto"></span>
+              <input class="visuellement-cache" type="file" accept="image/*" capture="environment" data-vcm-camera>
+            </label>
+            <label class="bouton bouton--contour">
+              <span data-contenu="voirChezMoi.boutonCharger"></span>
+              <input class="visuellement-cache" type="file" accept="image/*" data-vcm-fichier>
+            </label>
+          </div>
+          <div class="vcm__champ">
+            <label for="vcm-piece" data-contenu="voirChezMoi.libellePiece"></label>
+            <div class="vcm__piece">
+              <button type="button" class="bouton-rond" data-vcm-prec aria-label="Pièce précédente">◀</button>
+              <select id="vcm-piece" data-vcm-select></select>
+              <button type="button" class="bouton-rond" data-vcm-suiv aria-label="Pièce suivante">▶</button>
+            </div>
+          </div>
+          <div class="vcm__champ">
+            <label for="vcm-taille" data-contenu="voirChezMoi.libelleTaille"></label>
+            <input id="vcm-taille" type="range" min="6" max="90" step="1" value="30" data-vcm-taille>
+          </div>
+          <div class="vcm__actions">
+            <button type="button" class="bouton bouton--contour bouton--petit" data-vcm-recentrer data-contenu="voirChezMoi.boutonRecentrer"></button>
+            <button type="button" class="bouton bouton--contour bouton--petit" data-vcm-exemple data-contenu="voirChezMoi.boutonExemple" hidden></button>
+            <button type="button" class="bouton bouton--contour bouton--petit" data-vcm-enregistrer data-contenu="voirChezMoi.boutonEnregistrer"></button>
+          </div>
+          <p class="vcm__aide" id="vcm-aide" data-contenu="voirChezMoi.aide"></p>
+          <p class="vcm__confidentialite" data-contenu="voirChezMoi.confidentialite"></p>
+          <div class="vcm__reserver" data-vcm-reserver></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Fiche technique -->
+    <section class="section fiche" id="fiche" aria-labelledby="fiche-titre">
+      <header class="section__tete revele">
+        <p class="piste" data-contenu="ficheTechnique.piste"></p>
+        <h2 id="fiche-titre" data-contenu="ficheTechnique.titre"></h2>
+      </header>
+      <p class="fiche__son revele" data-contenu="ficheTechnique.phraseSon"></p>
+      <dl class="fiche__chiffres revele" data-fiche></dl>
+    </section>
+
+    <!-- 8. Avis VIP -->
+    <section class="section avis" id="avis" aria-labelledby="avis-titre">
+      <header class="section__tete revele">
+        <p class="piste" data-contenu="avis.piste"></p>
+        <h2 id="avis-titre" data-contenu="avis.titre"></h2>
+      </header>
+      <ul class="avis__liste" data-avis></ul>
+    </section>
+
+    <!-- 9. Appel à l'action -->
+    <section class="section appel" id="reserver" aria-labelledby="appel-titre">
+      <div class="appel__carte revele">
+        <h2 id="appel-titre" data-contenu="appel.titre"></h2>
+        <p class="appel__prix" data-contenu="appel.prix"></p>
+        <p class="compteur compteur--grand"><strong data-compteur>–</strong>/24 <span data-contenu="catalogue.disponibles"></span></p>
+        <p data-contenu="appel.texte"></p>
+        <div class="appel__actions" data-appel-actions>
+          <a class="bouton" href="#catalogue" data-contenu="appel.bouton"></a>
+        </div>
+        <div class="appel__contact">
+          <h3 data-contenu="appel.contactTitre"></h3>
+          <p><span data-contenu="appel.contactTexte"></span> <span data-contact></span></p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="pied" data-pied>
+    <p class="pied__signature" data-contenu="piedDePage.signature">EAZ</p>
+    <nav aria-label="Liens légaux"><ul class="pied__liens" data-pied-liens></ul></nav>
+    <ul class="pied__reseaux" data-pied-reseaux></ul>
+    <p class="pied__copyright" data-contenu="piedDePage.copyright"></p>
+  </footer>
+
+  <noscript>
+    <p class="noscript">Active JavaScript pour voir les 24 pièces et le module « Voir chez moi ».</p>
+  </noscript>
 </body>
 </html>

@@ -1,0 +1,175 @@
+{
+  "_note": "Tous les textes du site. [À REMPLIR] = texte manquant, [À VALIDER] = info à confirmer avant publication. Les marqueurs s'affichent en surbrillance sur le site tant qu'ils sont là.",
+
+  "accroche": "Rewind. Play. Même frisson, vrai son.",
+  "accrochesAlternatives": [
+    "Retourne la cassette. Le son a changé.",
+    "Ça ressemble à une cassette. Ça sonne comme un rêve.",
+    "Une cassette géante. Un son immense.",
+    "Face A : ton salon. Face B : ton salon, en mieux.",
+    "Ta mixtape mérite mieux qu'un baladeur."
+  ],
+
+  "entete": {
+    "reserver": "Réserver"
+  },
+
+  "hero": {
+    "surtitre": "Première édition · 24 pièces numérotées",
+    "signature": "Une œuvre d'EAZ",
+    "bouton": "Découvrir les 24 pièces"
+  },
+
+  "histoire": {
+    "piste": "A1",
+    "titre": "L'artiste",
+    "portrait": {
+      "src": "",
+      "alt": "Portrait d'EAZ dans son atelier"
+    },
+    "texte": [
+      "EAZ, artiste plasticien basé à Strasbourg.",
+      "[À REMPLIR] 3 à 5 lignes sur son parcours, après l'interview."
+    ],
+    "citation": "[À REMPLIR] Une phrase de l'artiste, tirée de l'interview.",
+    "auteurCitation": "EAZ"
+  },
+
+  "idee": {
+    "piste": "A2",
+    "titre": "L'idée",
+    "phraseOuverture": {
+      "version": "question",
+      "question": "Et si ta cassette préférée se mettait à jouer toute seule ?",
+      "affirmation": "Une cassette. Sauf que celle-ci, c'est elle qui joue."
+    },
+    "etapes": [
+      "Les bobines deviennent des haut-parleurs.",
+      "La fenêtre de bande laisse voir le son.",
+      "Le trou central devient un évent bass-reflex."
+    ],
+    "connectique": ["Bluetooth", "Jack 3,5 mm", "Secteur", "Basses, aigus, volume"]
+  },
+
+  "savoirFaire": {
+    "piste": "A3",
+    "titre": "Intention et savoir-faire",
+    "texte": [
+      "[À REMPLIR] L'intention de l'artiste : pourquoi un objet qui sonne vraiment.",
+      "[À REMPLIR] La fabrication, étape par étape."
+    ],
+    "partenaires": [
+      { "nom": "[À REMPLIR] Partenaire acoustique", "role": "[À REMPLIR] Ce qu'il a apporté" }
+    ]
+  },
+
+  "catalogue": {
+    "piste": "B1",
+    "titre": "Les 24 pièces",
+    "intro": "Chaque pièce est unique : façade, arrière et étiquette ne se répètent jamais. Glisse pour faire défiler la bande.",
+    "disponibles": "disponibles",
+    "reserver": "Réserver cette pièce",
+    "bientot": "Bientôt disponible",
+    "vendue": "Vendue",
+    "voirChezMoi": "Voir chez moi",
+    "libelleFacade": "Façade",
+    "libelleArriere": "Arrière",
+    "libelleEtiquette": "Étiquette"
+  },
+
+  "voirChezMoi": {
+    "piste": "B2",
+    "titre": "Voir chez moi",
+    "intro": "Pose l'enceinte sur ton meuble avant de choisir. Prends une photo, place la pièce, ajuste la taille.",
+    "conseil": "Photographie ton meuble de face, à hauteur d'yeux.",
+    "confidentialite": "Ta photo reste sur ton appareil : rien n'est envoyé.",
+    "boutonPhoto": "Prendre une photo",
+    "boutonCharger": "Choisir une photo",
+    "boutonExemple": "Revenir à l'exemple",
+    "boutonEnregistrer": "Enregistrer l'image",
+    "boutonRecentrer": "Recentrer",
+    "libelleTaille": "Taille",
+    "libellePiece": "Pièce",
+    "aide": "Fais glisser l'enceinte pour la déplacer. Pince ou tire le coin pour la redimensionner. Au clavier : flèches pour déplacer, + et − pour la taille."
+  },
+
+  "ficheTechnique": {
+    "piste": "B3",
+    "titre": "Fiche technique",
+    "phraseSon": "[À REMPLIR] Une phrase sur la qualité du son.",
+    "chiffres": [
+      { "libelle": "Connectique", "valeur": "Bluetooth · jack 3,5 mm" },
+      { "libelle": "Alimentation", "valeur": "Secteur" },
+      { "libelle": "Réglages", "valeur": "Basses, aigus, volume" },
+      { "libelle": "Formats", "valeur": "C60 ou C90" },
+      { "libelle": "Dimensions", "valeur": "[À VALIDER]" },
+      { "libelle": "Poids", "valeur": "[À VALIDER]" },
+      { "libelle": "Puissance", "valeur": "[À VALIDER]" }
+    ],
+    "largeurReelleCm": null
+  },
+
+  "avis": {
+    "piste": "B4",
+    "titre": "Ils l'ont écoutée",
+    "liste": [
+      { "texte": "[À REMPLIR] Avis VIP n° 1.", "auteur": "[À REMPLIR]", "video": "", "poster": "" },
+      { "texte": "[À REMPLIR] Avis VIP n° 2.", "auteur": "[À REMPLIR]", "video": "", "poster": "" },
+      { "texte": "[À REMPLIR] Avis VIP n° 3.", "auteur": "[À REMPLIR]", "video": "", "poster": "" }
+    ]
+  },
+
+  "appel": {
+    "titre": "Fin de la face B. Ta pièce t'attend.",
+    "prix": "850 € TTC",
+    "texte": "24 pièces numérotées, chacune unique. Quand elle est partie, elle est partie.",
+    "bouton": "Choisir ma pièce",
+    "contactTitre": "Une question ?",
+    "contactEmail": "[À REMPLIR]",
+    "contactTexte": "Écris-nous, on te répond vite."
+  },
+
+  "piedDePage": {
+    "signature": "EAZ",
+    "copyright": "© 2026 EAZ — Vin'tape, première édition",
+    "reseaux": [
+      { "nom": "Instagram", "url": "" }
+    ],
+    "liens": [
+      { "texte": "Mentions légales", "url": "/mentions-legales" },
+      { "texte": "CGV", "url": "/cgv" },
+      { "texte": "Confidentialité", "url": "/confidentialite" }
+    ]
+  },
+
+  "legal": {
+    "mentionsLegales": {
+      "titre": "Mentions légales",
+      "sections": [
+        { "titre": "Éditeur du site", "texte": "[À REMPLIR] Nom, statut, adresse, SIRET, contact." },
+        { "titre": "Directeur de la publication", "texte": "[À REMPLIR]" },
+        { "titre": "Hébergement", "texte": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis. [À VALIDER]" },
+        { "titre": "Propriété intellectuelle", "texte": "[À REMPLIR]" }
+      ]
+    },
+    "cgv": {
+      "titre": "Conditions générales de vente",
+      "sections": [
+        { "titre": "Objet", "texte": "[À REMPLIR]" },
+        { "titre": "Prix et paiement", "texte": "[À REMPLIR]" },
+        { "titre": "Livraison", "texte": "[À REMPLIR]" },
+        { "titre": "Droit de rétractation", "texte": "[À REMPLIR]" },
+        { "titre": "Garanties", "texte": "[À REMPLIR]" }
+      ]
+    },
+    "confidentialite": {
+      "titre": "Politique de confidentialité",
+      "sections": [
+        { "titre": "Données collectées", "texte": "[À REMPLIR]" },
+        { "titre": "Module « Voir chez moi »", "texte": "Les photos utilisées dans le module « Voir chez moi » restent dans ton navigateur : elles ne sont ni envoyées, ni stockées." },
+        { "titre": "Paiement", "texte": "[À REMPLIR] Le paiement est traité par Stripe." },
+        { "titre": "Tes droits", "texte": "[À REMPLIR]" }
+      ]
+    }
+  }
+}
