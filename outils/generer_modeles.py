@@ -15,7 +15,7 @@ RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIG = os.path.join(RACINE, 'originals')
 SORTIE_TEX = os.path.join(RACINE, 'assets', 'pieces')
 SORTIE_GLB = os.path.join(RACINE, 'assets', 'modeles')
-VERSION = 'v3'
+VERSION = 'v4'
 
 # Dimensions PROVISOIRES en mètres (à remplacer par les vraies mesures)
 LARGEUR = 0.45
@@ -23,7 +23,6 @@ HAUTEUR = LARGEUR / 1.92        # proportion mesurée sur les photos de face
 PROFONDEUR = 0.24               # caisson profond, à peu près aussi profond que haut
 EPAISSEUR_FACADE = 0.02         # plaque de façade épaisse, bords arrondis
 RAYON_FACADE = 0.006
-RAYON_CAISSON = 0.009
 RELIEF_CADRE = 0.0025           # cadre surélevé autour de l'étiquette (étiquette en retrait)
 RELIEF_TRAPEZE = 0.004          # trapèze du bas, encore plus en avant
 
@@ -86,7 +85,6 @@ def modele(cle, config_caisson, donnees):
     s = Scene()
     m_face = s.materiau('facade-photo', texture=s.image(octets_face), rugosite=0.55)
     m_tranche = s.materiau('facade', lineaire(couleur), rugosite=0.5)
-    m_joint = s.materiau('joint', lineaire((0.05, 0.05, 0.05)), rugosite=0.8)
     m_noir = s.materiau('noir', lineaire((0.07, 0.07, 0.07)), rugosite=0.6, double=True)
     materiaux = {}
     def mat(nom_couleur):
@@ -119,12 +117,10 @@ def modele(cle, config_caisson, donnees):
     contour = [(x_de(u), y_de(min(v, 1 - mv))) for u, v in TRAPEZE]
     a, f = prisme(contour, z0 + RELIEF_CADRE, z0 + RELIEF_CADRE + RELIEF_TRAPEZE, uv_de); avants.append(a); flancs.append(f)
     s.maillage('facade-relief', [(*fusion(avants), m_face), (*fusion(flancs), m_flanc)])
-    # Joint sombre entre façade et caisson
-    joint = boite_arrondie((0, yc, D / 2 - e - 0.0015), (W - 0.006, H - 0.006, 0.003), 0.004)
-    s.maillage('joint', [(*fusion(list(joint.values())), m_joint)])
     # Caisson, couleur réglable face par face
-    lc, hc, pc = W - 0.008, H - 0.008, D - e - 0.003
-    caisson = boite_arrondie((0, yc, -D / 2 + pc / 2), (lc, hc, pc), RAYON_CAISSON)
+    # Caisson à fleur de la façade : même largeur, même hauteur, même arrondi
+    lc, hc, pc = W, H, D - e
+    caisson = boite_arrondie((0, yc, -D / 2 + pc / 2), (lc, hc, pc), RAYON_FACADE)
     groupes = {}
     for nom_face, cle_face in (('dessus', 'dessus'), ('gauche', 'cotes'), ('droite', 'cotes'), ('dessous', 'dessous'), ('avant', 'cotes')):
         groupes.setdefault(faces_caisson[cle_face], []).append(caisson[nom_face])
