@@ -26,3 +26,7 @@ desktop.ini
 # Outils
 node_modules/
 .vercel/
+
+# Python
+__pycache__/
+*.pyc
