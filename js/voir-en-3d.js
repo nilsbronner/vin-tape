@@ -9,7 +9,7 @@ import { boutonReserver } from './catalogue.js';
 
 const BIBLIOTHEQUE = '/assets/vendor/model-viewer-4.4.0.min.js';
 // Dimensions du modèle généré par outils/generer_modeles.py (en cm)
-const MODELE_CM = { largeur: 45, hauteur: 45 / 1.92, profondeur: 20 };
+const MODELE_CM = { largeur: 45, hauteur: 45 / 1.92, profondeur: 24 };
 
 export function initVoirEn3D({ contenu, pieces, catalogue }) {
   const racine = document.querySelector('[data-v3d]');
