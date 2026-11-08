@@ -1,11 +1,13 @@
 {
   "_note": "Tous les textes du site. [À REMPLIR] = texte manquant, [À VALIDER] = info à confirmer avant publication. Les marqueurs s'affichent en surbrillance sur le site tant qu'ils sont là.",
   "accroche": "Rewind. Play. Même frisson, vrai son.",
-  "accrochesAlternatives": [
-    "Retourne la cassette. Le son a changé.",
-    "Ça ressemble à une cassette. Ça sonne comme un rêve.",
-    "Une cassette géante. Un son immense.",
-    "Face A : ton salon. Face B : ton salon, en mieux.",
+  "_noteAccroche": "Pour changer d'accroche : copier l'une des accrochesPossibles dans \"accroche\". Penser aussi à og:description dans index.html.",
+  "accrochesPossibles": [
+    "Rewind. Play. Même frisson, vrai son.",
+    "Rembobine. Monte le son.",
+    "Ta mixtape a grandi.",
+    "Appuie sur play. Ton salon fait le reste.",
+    "Pause sur le reste. Play sur Vin'tape.",
     "Ta mixtape mérite mieux qu'un baladeur."
   ],
   "entete": {
@@ -75,12 +77,8 @@
       "[À REMPLIR] L'intention de l'artiste : pourquoi un objet qui sonne vraiment.",
       "[À REMPLIR] La fabrication, étape par étape."
     ],
-    "partenaires": [
-      {
-        "nom": "[À REMPLIR] Partenaire acoustique",
-        "role": "[À REMPLIR] Ce qu'il a apporté"
-      }
-    ]
+    "origineTitre": "Origine",
+    "origine": "Conçue et assemblée à la main par EAZ à Strasbourg. Haut-parleurs fabriqués en France ; amplificateur et connectique importés. [À VALIDER]"
   },
   "catalogue": {
     "piste": "B1",
@@ -152,6 +150,10 @@
       {
         "libelle": "Puissance",
         "valeur": "[À VALIDER]"
+      },
+      {
+        "libelle": "Origine",
+        "valeur": "Haut-parleurs fabriqués en France ; amplificateur et connectique importés. Assemblage à la main par EAZ à Strasbourg. [À VALIDER]"
       }
     ],
     "dimensionsCm": {
@@ -196,7 +198,6 @@
   },
   "piedDePage": {
     "signature": "EAZ",
-    "copyright": "© 2026 EAZ — Vin'tape, première édition",
     "reseaux": [
       {
         "nom": "Instagram",
@@ -216,7 +217,9 @@
         "texte": "Confidentialité",
         "url": "/confidentialite"
       }
-    ]
+    ],
+    "credit": "Site conçu par Nils Bronner · © 2026 Nils Bronner, tous droits réservés [À VALIDER]",
+    "propriete": "Les œuvres et les pièces Vin'tape sont la propriété d'EAZ. [À VALIDER]"
   },
   "legal": {
     "mentionsLegales": {

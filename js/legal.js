@@ -1,5 +1,5 @@
 import { chargerDonnees } from './donnees.js';
-import { creer, ecrire } from './contenu.js';
+import { creer, ecrire, remplirTextes } from './contenu.js';
 import { remplirPied } from './sections.js';
 
 const { contenu } = await chargerDonnees();
@@ -15,3 +15,4 @@ if (page) {
   }
 }
 remplirPied(contenu);
+remplirTextes(contenu, document.querySelector('.pied'));
