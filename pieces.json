@@ -42,9 +42,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-chrome-v2.webp"
+        "packshot": "/assets/pieces/packshot-menthe-chrome-v3.webp"
       },
-      "modele3d": "/assets/modeles/menthe-chrome-v2.glb"
+      "modele3d": "/assets/modeles/menthe-chrome-v3.glb"
     },
     {
       "numero": 2,
@@ -55,9 +55,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-alga-v2.webp"
+        "packshot": "/assets/pieces/packshot-menthe-alga-v3.webp"
       },
-      "modele3d": "/assets/modeles/menthe-alga-v2.glb"
+      "modele3d": "/assets/modeles/menthe-alga-v3.glb"
     },
     {
       "numero": 3,
@@ -68,9 +68,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-lownoise-v2.webp"
+        "packshot": "/assets/pieces/packshot-menthe-lownoise-v3.webp"
       },
-      "modele3d": "/assets/modeles/menthe-lownoise-v2.glb"
+      "modele3d": "/assets/modeles/menthe-lownoise-v3.glb"
     },
     {
       "numero": 4,
@@ -120,9 +120,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-chrome-v2.webp"
+        "packshot": "/assets/pieces/packshot-orange-chrome-v3.webp"
       },
-      "modele3d": "/assets/modeles/orange-chrome-v2.glb"
+      "modele3d": "/assets/modeles/orange-chrome-v3.glb"
     },
     {
       "numero": 8,
@@ -133,9 +133,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-alga-v2.webp"
+        "packshot": "/assets/pieces/packshot-orange-alga-v3.webp"
       },
-      "modele3d": "/assets/modeles/orange-alga-v2.glb"
+      "modele3d": "/assets/modeles/orange-alga-v3.glb"
     },
     {
       "numero": 9,
@@ -146,9 +146,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-lownoise-v2.webp"
+        "packshot": "/assets/pieces/packshot-orange-lownoise-v3.webp"
       },
-      "modele3d": "/assets/modeles/orange-lownoise-v2.glb"
+      "modele3d": "/assets/modeles/orange-lownoise-v3.glb"
     },
     {
       "numero": 10,
@@ -185,9 +185,9 @@
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-vert-lownoise-v2.webp"
+        "packshot": "/assets/pieces/packshot-vert-lownoise-v3.webp"
       },
-      "modele3d": "/assets/modeles/vert-lownoise-v2.glb"
+      "modele3d": "/assets/modeles/vert-lownoise-v3.glb"
     },
     {
       "numero": 13,
