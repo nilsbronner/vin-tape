@@ -1,18 +1,12 @@
-# Images des pièces
+# Visuels des pièces
 
-Tant que ce dossier est vide, le site dessine chaque pièce en SVG avec ses couleurs (placeholder).
+| Fichier | Rôle | Origine |
+| --- | --- | --- |
+| `packshot-<pièce>-v1.webp` | Visuel du catalogue et du hero, fond transparent | Rendu du modèle 3D (vue 3/4) |
+| `face-<pièce>-v1.webp` | Façade redressée (section « L'idée ») | `outils/generer_modeles.py` à partir des photos |
 
-Pour chaque pièce, deux images optimisées (originaux lourds dans `/originals/`, jamais commités) :
+Les modèles 3D sont dans `assets/modeles/<pièce>-v1.glb`.
 
-| Usage | Nom conseillé | Format | Taille visée |
-| --- | --- | --- | --- |
-| Catalogue (photo de face, fond neutre) | `piece-07-v1.webp` | WebP, 1600 × 1024 px environ | moins de 300 Ko |
-| « Voir chez moi » (détourée, fond transparent) | `piece-07-detouree-v1.webp` | WebP ou PNG transparent, 1200 px de large, cadrée au ras de l'objet | moins de 300 Ko |
+`/assets/` est servi avec un cache d'un an : pour remplacer un fichier, changer son nom (`-v2`) et mettre à jour `pieces.json`, au lieu d'écraser le fichier.
 
-Puis renseigner les chemins dans `pieces.json` :
-
-```json
-"images": { "catalogue": "/assets/pieces/piece-07-v1.webp", "detouree": "/assets/pieces/piece-07-detouree-v1.webp" }
-```
-
-Important : `/assets/` est servi avec un cache d'un an. Pour remplacer une image, changer son nom (`-v2`) au lieu d'écraser le fichier.
+Taille visée : moins de 300 Ko par image (les packshots font environ 45 Ko, les façades environ 60 Ko, les modèles environ 180 Ko).
