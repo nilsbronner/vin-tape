@@ -92,6 +92,49 @@
     "voir3d": "Voir en 3D",
     "photoAVenir": "Photo à venir"
   },
+  "livraison": {
+    "piste": "B2",
+    "titre": "Livraison et paiement",
+    "intro": "Comment ta pièce arrive chez toi.",
+    "lignes": [
+      {
+        "libelle": "Prix",
+        "valeur": "850 € TTC, TVA incluse"
+      },
+      {
+        "libelle": "Paiement",
+        "valeur": "Paiement en ligne sécurisé par Stripe"
+      },
+      {
+        "libelle": "Expédition",
+        "valeur": "Sous 2 jours ouvrés après paiement"
+      },
+      {
+        "libelle": "Emballage",
+        "valeur": "Carton triple cannelure, mousses de calage, papier kraft"
+      },
+      {
+        "libelle": "Transporteur",
+        "valeur": "DHL ou UPS"
+      },
+      {
+        "libelle": "Frais de livraison",
+        "valeur": "[À DÉFINIR]"
+      }
+    ],
+    "_notePhotos": "Photos du carton : déposer l'original dans /originals/, lancer outils/optimiser_photos.py, puis renseigner src (ex. /assets/img/carton-1-v1.webp).",
+    "photos": [
+      {
+        "src": "",
+        "alt": "Le carton d'expédition Vin'tape"
+      },
+      {
+        "src": "",
+        "alt": "Une pièce Vin'tape calée dans son emballage"
+      }
+    ],
+    "photoAVenir": "Photo du carton à venir"
+  },
   "ouLeVoir": {
     "piste": "B2",
     "titre": "Où le voir",
@@ -194,7 +237,8 @@
     "bouton": "Choisir ma pièce",
     "contactTitre": "Une question ?",
     "contactEmail": "[À REMPLIR]",
-    "contactTexte": "Écris-nous, on te répond vite."
+    "contactTexte": "Écris-nous, on te répond vite.",
+    "tva": "TVA incluse"
   },
   "piedDePage": {
     "signature": "EAZ",
