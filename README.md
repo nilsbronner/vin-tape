@@ -34,6 +34,39 @@ Dans **`pieces.json`**, chercher la pièce par son `"numero"` et passer `"statut
 
 La collection a été déduite des photos du 6 novembre : 8 couleurs × 3 versions (`"chrome"` caisson blanc, `"alga"` étiquette Super Colour caisson noir, `"low-noise"` caisson assorti). **La numérotation est provisoire**, et la 8e couleur n'apparaît sur aucune photo : corriger `numero`, `couleur`, `format` (`"60"` ou `"90"`) avant le lancement.
 
+## Ajouter une boutique (section « Où le voir »)
+
+La section « Où le voir » s'affiche après le catalogue dès que **`boutiques.json`** contient au moins une boutique. Tant que la liste est vide, elle reste invisible.
+
+Ajouter un objet dans la liste `"boutiques"` :
+
+```json
+{
+  "boutiques": [
+    {
+      "nom": "Nom de la boutique",
+      "ville": "Strasbourg",
+      "adresse": "12 rue Exemple\n67000 Strasbourg",
+      "lien": "https://site-de-la-boutique.fr",
+      "logo": "/assets/boutiques/nom-de-la-boutique-v1.webp",
+      "statut": "en vente",
+      "datesDebut": "2026-12-02"
+    }
+  ]
+}
+```
+
+| Champ | Obligatoire | Règle |
+| --- | --- | --- |
+| `nom` | oui | Nom affiché |
+| `statut` | oui | `"expose"` (badge « Exposé ici ») ou `"en vente"` (badge « En vente ici ») ; toute autre valeur masque la boutique |
+| `ville`, `adresse` | non | `\n` dans l'adresse = retour à la ligne |
+| `lien` | non | Doit commencer par `https://` ; s'ouvre dans un nouvel onglet |
+| `logo` | non | Fichier **du site** uniquement, dans `/assets/boutiques/` (WebP ou PNG carré, environ 128 px, moins de 50 Ko). Un logo hébergé ailleurs est ignoré. Sans logo, l'initiale s'affiche |
+| `datesDebut` | non | Format `AAAA-MM-JJ`, affiché « Depuis le 2 décembre 2026 » |
+
+Les textes de la section (titre, intro, badges) sont dans `contenu.json` → `"ouLeVoir"`. Les numéros de piste (B1, B2…) se recalculent seuls selon les sections visibles.
+
 ## Ajouter un lien Stripe
 
 Créer un Payment Link dans Stripe pour la pièce, puis le coller dans `"lienPaiement"` :
@@ -81,10 +114,10 @@ Chaque push sur `main` déploie en production. Chaque branche ou pull request a 
 | Fichier | Rôle |
 | --- | --- |
 | `index.html` | Structure des 9 sections |
-| `contenu.json`, `pieces.json` | Textes et données des pièces |
+| `contenu.json`, `pieces.json`, `boutiques.json` | Textes, pièces, boutiques |
 | `css/vintape.css` | Styles (mobile first) |
 | `js/app.js` | Point d'entrée |
-| `js/hero.js`, `js/idee.js`, `js/catalogue.js`, `js/voir-en-3d.js` | Une section chacun |
+| `js/hero.js`, `js/idee.js`, `js/catalogue.js`, `js/boutiques.js`, `js/voir-en-3d.js` | Une section chacun |
 | `outils/` | Génération des textures et modèles 3D à partir des photos (hors site) |
 | `js/contenu.js`, `js/sections.js` | Remplissage des textes |
 | `assets/` | Polices, images. Cache d'un an : changer le nom d'un fichier (`-v2`) pour le remplacer |
