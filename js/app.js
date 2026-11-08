@@ -4,6 +4,8 @@ import {
   remplirPortrait, remplirPartenaires, remplirFiche, remplirAvis, remplirContact, remplirPied,
 } from './sections.js';
 import { initRevele } from './revele.js';
+import { injecterStyle } from './cassette.js';
+import { initHero } from './hero.js';
 
 function majCompteurs(pieces) {
   const n = pieces.filter(estDisponible).length;
@@ -29,7 +31,8 @@ async function demarrer() {
     document.documentElement.classList.add('erreur-donnees');
     return;
   }
-  const { contenu, pieces } = donnees;
+  const { contenu, pieces, palette } = donnees;
+  injecterStyle();
   remplirTextes(contenu);
   remplirPortrait(contenu);
   remplirPartenaires(contenu);
@@ -38,6 +41,7 @@ async function demarrer() {
   remplirContact(contenu);
   remplirPied(contenu);
   majCompteurs(pieces);
+  initHero({ pieces, palette });
   initRevele();
 }
 
