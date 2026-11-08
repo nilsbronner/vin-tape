@@ -11,27 +11,37 @@ export async function chargerDonnees() {
     charger('/contenu.json'),
     charger('/pieces.json'),
   ]);
-  const palette = catalogue.palette || {};
-  const pieces = (catalogue.pieces || [])
-    .slice()
-    .sort((a, b) => a.numero - b.numero);
-  return { contenu, palette, pieces };
+  const pieces = (catalogue.pieces || []).slice().sort((a, b) => a.numero - b.numero);
+  return { contenu, catalogue, pieces };
 }
 
 export const estDisponible = (piece) => piece.statut === 'disponible';
 
 export const numeroAffiche = (piece) => String(piece.numero).padStart(2, '0');
 
-// Couleur hexadécimale d'une clé de palette (« menthe ») ou valeur brute (« #8fd3bc »).
-export function couleur(palette, cle) {
-  if (!cle) return '#888888';
-  return palette[cle] || cle;
+const majuscule = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : '');
+
+export function nomCouleur(catalogue, piece) {
+  return catalogue.nomsCouleurs?.[piece.couleur] || majuscule(piece.couleur);
 }
 
-export function couleursPiece(palette, piece) {
-  return {
-    facade: couleur(palette, piece.couleurFacade),
-    arriere: couleur(palette, piece.couleurArriere),
-    etiquette: couleur(palette, piece.etiquette),
-  };
+export function couleurHex(catalogue, piece) {
+  return catalogue.palette?.[piece.couleur] || '#c9c2b4';
 }
+
+export function nomVersion(catalogue, piece) {
+  return catalogue.versions?.[piece.version]?.nom || majuscule(piece.version);
+}
+
+export function nomCaisson(catalogue, piece) {
+  return catalogue.caissons?.[piece.caisson] || '';
+}
+
+// « Menthe · Chrome · caisson blanc · 60 »
+export function resume(catalogue, piece) {
+  return [nomCouleur(catalogue, piece), nomVersion(catalogue, piece), nomCaisson(catalogue, piece), piece.format]
+    .filter(Boolean).join(' · ');
+}
+
+export const aUnVisuel = (piece) => Boolean(piece.images?.packshot);
+export const aUn3D = (piece) => Boolean(piece.modele3d);

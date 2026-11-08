@@ -4,11 +4,10 @@ import {
   remplirPortrait, remplirPartenaires, remplirFiche, remplirAvis, remplirContact, remplirPied,
 } from './sections.js';
 import { initRevele } from './revele.js';
-import { injecterStyle } from './cassette.js';
 import { initHero } from './hero.js';
 import { initIdee } from './idee.js';
 import { initCatalogue } from './catalogue.js';
-import { initVoirChezMoi } from './voir-chez-moi.js';
+import { initVoirEn3D } from './voir-en-3d.js';
 
 function majCompteurs(pieces) {
   const n = pieces.filter(estDisponible).length;
@@ -34,8 +33,7 @@ async function demarrer() {
     document.documentElement.classList.add('erreur-donnees');
     return;
   }
-  const { contenu, pieces, palette } = donnees;
-  injecterStyle();
+  const { contenu, pieces, catalogue } = donnees;
   remplirTextes(contenu);
   remplirPortrait(contenu);
   remplirPartenaires(contenu);
@@ -44,10 +42,10 @@ async function demarrer() {
   remplirContact(contenu);
   remplirPied(contenu);
   majCompteurs(pieces);
-  initHero({ pieces, palette });
-  initIdee({ contenu, pieces, palette });
-  initCatalogue({ contenu, pieces, palette });
-  initVoirChezMoi({ contenu, pieces, palette });
+  initHero({ pieces, catalogue });
+  initIdee({ contenu });
+  initCatalogue({ contenu, pieces, catalogue });
+  initVoirEn3D({ contenu, pieces, catalogue });
   initRevele();
 }
 

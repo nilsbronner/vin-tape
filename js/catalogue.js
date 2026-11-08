@@ -1,17 +1,14 @@
 // Catalogue des 24 pièces : galerie horizontale, statut, réservation.
-import { svgCassette, appliquerCouleurs } from './cassette.js';
-import { couleursPiece, estDisponible, numeroAffiche, couleur } from './donnees.js';
-import { creer, ecrire, typo } from './contenu.js';
+import {
+  estDisponible, numeroAffiche, nomCouleur, nomVersion, nomCaisson, couleurHex, resume, aUnVisuel, aUn3D,
+} from './donnees.js';
+import { creer, typo } from './contenu.js';
 import { choisir, surChoix } from './selection.js';
 
 const LIEN_VALIDE = /^https:\/\/\S+$/;
 
-export function descriptionPiece(piece) {
-  return `n° ${numeroAffiche(piece)}, ${piece.format}, façade ${piece.couleurFacade}, arrière ${piece.couleurArriere}, étiquette ${piece.etiquette}`;
-}
-
-// Bouton « Réserver cette pièce » ou « Bientôt disponible ».
-export function boutonReserver(piece, textes, { libelle } = {}) {
+// Bouton « Réserver cette pièce », « Bientôt disponible » ou « Vendue ».
+export function boutonReserver(piece, textes, { libelle, description = '' } = {}) {
   if (!estDisponible(piece)) {
     const span = creer('span', 'bouton', textes.vendue);
     span.setAttribute('aria-disabled', 'true');
@@ -21,7 +18,7 @@ export function boutonReserver(piece, textes, { libelle } = {}) {
     const a = creer('a', 'bouton', libelle || textes.reserver);
     a.href = piece.lienPaiement;
     a.rel = 'noopener';
-    a.setAttribute('aria-label', `${typo(libelle || textes.reserver)} : ${descriptionPiece(piece)}`);
+    a.setAttribute('aria-label', typo(`${libelle || textes.reserver} : n° ${numeroAffiche(piece)}${description ? `, ${description}` : ''}`));
     return a;
   }
   const span = creer('span', 'bouton', textes.bientot);
@@ -29,19 +26,11 @@ export function boutonReserver(piece, textes, { libelle } = {}) {
   return span;
 }
 
-function pastille(palette, cle, libelle) {
-  const li = creer('li', 'pastille');
-  const rond = creer('span', 'pastille__rond');
-  rond.style.setProperty('--c', couleur(palette, cle));
-  rond.setAttribute('aria-hidden', 'true');
-  li.append(rond, creer('span', 'pastille__texte', `${libelle} : ${cle}`));
-  return li;
-}
-
-function carte(piece, index, { palette, textes }) {
+function carte(piece, index, { catalogue, textes }) {
   const dispo = estDisponible(piece);
   const li = creer('li', `carte revele${dispo ? '' : ' carte--vendue'}`);
   li.style.setProperty('--i', index % 4);
+  li.style.setProperty('--facade', couleurHex(catalogue, piece));
   li.dataset.numero = piece.numero;
 
   const article = creer('article', 'carte__article');
@@ -49,18 +38,18 @@ function carte(piece, index, { palette, textes }) {
   article.setAttribute('aria-labelledby', idTitre);
 
   const visuel = creer('div', 'carte__visuel');
-  appliquerCouleurs(visuel, couleursPiece(palette, piece));
-  if (piece.images?.catalogue) {
+  if (aUnVisuel(piece)) {
     const img = document.createElement('img');
-    img.src = piece.images.catalogue;
-    img.alt = `Enceinte Vin’tape ${descriptionPiece(piece)}`;
+    img.src = piece.images.packshot;
+    img.alt = `Enceinte Vin’tape n° ${numeroAffiche(piece)} : ${resume(catalogue, piece)}`;
     img.loading = 'lazy';
     img.decoding = 'async';
-    img.width = 800;
-    img.height = 512;
+    img.width = 951;
+    img.height = 650;
     visuel.append(img);
   } else {
-    visuel.innerHTML = svgCassette({ numero: numeroAffiche(piece), format: piece.format });
+    visuel.classList.add('carte__visuel--vide');
+    visuel.append(creer('span', 'carte__a-venir', textes.photoAVenir));
   }
   if (!dispo) visuel.append(creer('span', 'carte__tampon', textes.vendue));
 
@@ -68,47 +57,49 @@ function carte(piece, index, { palette, textes }) {
   const titre = creer('h3', 'carte__titre');
   titre.id = idTitre;
   titre.append('N° ', numeroAffiche(piece), creer('span', null, '/24'));
-  const statut = creer('p', `carte__statut carte__statut--${dispo ? 'dispo' : 'vendue'}`, dispo ? textes.disponible : textes.vendue);
   const entete = creer('div', 'carte__entete');
-  entete.append(titre, creer('p', 'carte__format', piece.format));
+  entete.append(titre);
+  if (piece.format) entete.append(creer('p', 'carte__format', piece.format));
 
-  const couleurs = creer('ul', 'carte__couleurs');
-  couleurs.append(
-    pastille(palette, piece.couleurFacade, textes.libelleFacade),
-    pastille(palette, piece.couleurArriere, textes.libelleArriere),
-    pastille(palette, piece.etiquette, textes.libelleEtiquette),
-  );
+  const statut = creer('p', `carte__statut carte__statut--${dispo ? 'dispo' : 'vendue'}`, dispo ? textes.disponible : textes.vendue);
+
+  const details = creer('ul', 'carte__details');
+  const ligneCouleur = creer('li', 'pastille');
+  const rond = creer('span', 'pastille__rond');
+  rond.setAttribute('aria-hidden', 'true');
+  ligneCouleur.append(rond, creer('span', null, nomCouleur(catalogue, piece)));
+  details.append(ligneCouleur, creer('li', null, `Version ${nomVersion(catalogue, piece)}`));
+  if (nomCaisson(catalogue, piece)) details.append(creer('li', null, nomCaisson(catalogue, piece)));
 
   const actions = creer('div', 'carte__actions');
-  actions.append(boutonReserver(piece, textes));
-  if (dispo) {
-    const essayer = creer('button', 'bouton bouton--contour bouton--petit', textes.voirChezMoi);
-    essayer.type = 'button';
-    essayer.setAttribute('aria-label', `${typo(textes.voirChezMoi)} : pièce n° ${numeroAffiche(piece)}`);
-    essayer.addEventListener('click', () => {
+  actions.append(boutonReserver(piece, textes, { description: resume(catalogue, piece) }));
+  if (dispo && aUn3D(piece)) {
+    const voir = creer('button', 'bouton bouton--contour bouton--petit', textes.voir3d);
+    voir.type = 'button';
+    voir.setAttribute('aria-label', typo(`${textes.voir3d} : pièce n° ${numeroAffiche(piece)}`));
+    voir.addEventListener('click', () => {
       choisir(piece, 'catalogue');
       document.getElementById('chez-moi')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-    actions.append(essayer);
+    actions.append(voir);
   }
 
-  corps.append(entete, statut, couleurs, actions);
+  corps.append(entete, statut, details, actions);
   article.append(visuel, corps);
   li.append(article);
   return li;
 }
 
-export function initCatalogue({ contenu, pieces, palette }) {
+export function initCatalogue({ contenu, pieces, catalogue }) {
   const piste = document.querySelector('[data-catalogue]');
   if (!piste) return;
   const textes = contenu.catalogue;
 
   const fragment = document.createDocumentFragment();
-  pieces.forEach((piece, i) => fragment.append(carte(piece, i, { palette, textes })));
+  pieces.forEach((piece, i) => fragment.append(carte(piece, i, { catalogue, textes })));
   piste.textContent = '';
   piste.append(fragment);
 
-  // Flèches et barre de progression « bande »
   const prec = document.querySelector('[data-cat-prec]');
   const suiv = document.querySelector('[data-cat-suiv]');
   const progression = document.querySelector('[data-cat-progression]');
@@ -125,13 +116,10 @@ export function initCatalogue({ contenu, pieces, palette }) {
     if (prec) prec.disabled = piste.scrollLeft <= 2;
     if (suiv) suiv.disabled = piste.scrollLeft >= max - 2;
   };
-  piste.addEventListener('scroll', () => {
-    if (!enAttente) { enAttente = true; requestAnimationFrame(maj); }
-  }, { passive: true });
+  piste.addEventListener('scroll', () => { if (!enAttente) { enAttente = true; requestAnimationFrame(maj); } }, { passive: true });
   window.addEventListener('resize', maj);
   maj();
 
-  // Mise en avant de la pièce choisie ailleurs (module « voir chez moi »)
   surChoix((piece) => {
     piste.querySelectorAll('.carte').forEach((c) => c.classList.toggle('est-choisie', Number(c.dataset.numero) === piece.numero));
   });
@@ -143,12 +131,12 @@ export function initCatalogue({ contenu, pieces, palette }) {
     actionsAppel.append(emplacement);
     surChoix((piece) => {
       emplacement.textContent = '';
-      if (!estDisponible(piece)) return;
-      emplacement.append(boutonReserver(piece, textes, { libelle: `Réserver le n° ${numeroAffiche(piece)}` }));
+      if (estDisponible(piece)) {
+        emplacement.append(boutonReserver(piece, textes, { libelle: `Réserver le n° ${numeroAffiche(piece)}`, description: resume(catalogue, piece) }));
+      }
     });
   }
 
-  // Sélection par défaut : première pièce disponible
-  const premiere = pieces.find(estDisponible) || pieces[0];
+  const premiere = pieces.find((p) => estDisponible(p) && aUn3D(p)) || pieces.find(estDisponible) || pieces[0];
   if (premiere) choisir(premiere, 'defaut');
 }
