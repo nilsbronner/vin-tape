@@ -731,3 +731,49 @@ blockquote, figure { margin: 0; }
 }
 
 .appel__selection:empty { display: none; }
+
+/* ==========================================================================
+   Voir chez moi
+   ========================================================================== */
+.vcm__grille { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+.vcm__scene { display: grid; justify-items: center; min-width: 0; }
+.vcm__canvas {
+  border-radius: var(--rayon);
+  background: var(--fond-2);
+  touch-action: none;
+  -webkit-user-select: none; user-select: none;
+  box-shadow: 0 20px 50px rgb(0 0 0 / .4);
+}
+.vcm__commandes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; align-content: start; min-width: 0; }
+.vcm__conseil {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+.vcm__photos { display: flex; flex-wrap: wrap; gap: .6rem; }
+.vcm__photos .bouton { position: relative; }
+.vcm__photos .bouton:focus-within { outline: 3px solid var(--accent); outline-offset: 3px; }
+.vcm__photos [hidden] { display: none; }
+.vcm__champ { display: grid; gap: .45rem; }
+.vcm__champ > label { font-family: var(--police-mono); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--discret); }
+.vcm__piece { display: flex; gap: .5rem; align-items: center; }
+.vcm__piece select {
+  flex: 1; width: 100%; min-width: 0; min-height: 44px;
+  padding: .5rem .8rem;
+  border-radius: 10px;
+  border: 1px solid var(--ligne);
+  background: var(--fond-2);
+  font-size: .95rem;
+}
+input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 44px; }
+.vcm__actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.vcm__aide, .vcm__confidentialite { font-size: .9rem; color: var(--discret); }
+.vcm__confidentialite { display: flex; gap: .5rem; align-items: baseline; }
+.vcm__confidentialite::before { content: "●"; color: #9fe0b5; font-size: .7em; }
+.vcm__reserver { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid var(--ligne); }
+.vcm__reserver:empty { display: none; }
+.vcm__choix { font-family: var(--police-mono); letter-spacing: .08em; }
+@media (min-width: 960px) {
+  .vcm__grille { grid-template-columns: minmax(0, 1.6fr) minmax(18rem, 1fr); gap: 3rem; align-items: start; }
+}
