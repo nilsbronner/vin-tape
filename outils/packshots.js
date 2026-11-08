@@ -17,16 +17,16 @@ const base = process.env.BASE || 'http://localhost:8123';
   await page.goto(`${base}/404.html`);
   await page.addScriptTag({ type: 'module', url: '/assets/vendor/model-viewer-4.4.0.min.js' });
   for (const piece of pieces.filter((p) => p.modele3d)) {
-    const cle = path.basename(piece.modele3d).replace(/-v\d+\.glb$/, '');
+    const [, cle, version] = path.basename(piece.modele3d).match(/^(.*)-(v\d+)\.glb$/);
     await page.evaluate((src) => {
-      document.body.innerHTML = `<model-viewer id="mv" src="${src}" camera-orbit="-28deg 76deg 100%" field-of-view="22deg" shadow-intensity="1.1" shadow-softness="0.9" exposure="1.05" environment-image="neutral" interaction-prompt="none" style="width:1400px;height:1000px"></model-viewer>`;
+      document.body.innerHTML = `<model-viewer id="mv" src="${src}" camera-orbit="-30deg 72deg auto" shadow-intensity="1.1" shadow-softness="0.9" exposure="1.05" environment-image="neutral" interaction-prompt="none" style="width:1400px;height:1000px"></model-viewer>`;
       document.body.style.background = 'transparent';
     }, piece.modele3d);
     await page.waitForFunction(() => document.getElementById('mv').loaded, null, { timeout: 60000 });
     await page.waitForTimeout(1200);
     const png = path.join(require('os').tmpdir(), `packshot-${cle}.png`);
     await page.screenshot({ path: png, omitBackground: true });
-    const sortie = path.join(racine, 'assets', 'pieces', `packshot-${cle}-v1.webp`);
+    const sortie = path.join(racine, 'assets', 'pieces', `packshot-${cle}-${version}.webp`);
     execFileSync('python3', ['-c', `
 from PIL import Image
 im = Image.open(${JSON.stringify(png)}).convert('RGBA')
