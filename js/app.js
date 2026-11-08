@@ -10,6 +10,7 @@ import { initCatalogue } from './catalogue.js';
 import { initVoirEn3D } from './voir-en-3d.js';
 import { initBoutiques } from './boutiques.js';
 import { initFichePiece } from './fiche-piece.js';
+import { initVideos } from './videos.js';
 
 function majCompteurs(pieces) {
   const n = pieces.filter(estDisponible).length;
@@ -53,6 +54,7 @@ async function demarrer() {
   remplirPortrait(contenu);
   remplirFiche(contenu);
   remplirLivraison(contenu);
+  initVideos({ contenu });
   remplirAvis(contenu);
   remplirContact(contenu);
   remplirPied(contenu);

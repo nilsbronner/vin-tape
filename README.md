@@ -71,6 +71,19 @@ python3 outils/optimiser_photos.py originals/carton-1.jpg originals/carton-2.jpg
 
 Le script crée `assets/img/carton-1-v1.webp` et `carton-2-v1.webp` (WebP, 1600 px, moins de 300 Ko). Renseigner ensuite leurs chemins dans `"livraison.photos[].src"`. Le même outil sert pour toutes les photos réelles (option `--dossier`).
 
+## Vidéos (démo et artiste)
+
+Deux emplacements dans `contenu.json` → `"videos"` : `"videoDemo"` (sous « L'idée ») et `"videoArtiste"` (dans « L'artiste »).
+
+```json
+"videoDemo": { "titre": "Écoute-la jouer", "url": "https://vimeo.com/123456789", "vignette": "/assets/img/video-demo-v1.webp", "alt": "…" }
+```
+
+- `url` : lien Vimeo (`https://vimeo.com/123456789`, ou `https://vimeo.com/123456789/abcdef` pour une vidéo non répertoriée). Vide = emplacement « Vidéo à venir ».
+- `vignette` : image **locale** affichée avant le clic (capture de la vidéo passée par `outils/optimiser_photos.py`). Sans vignette, un fond sombre avec le bouton lecture.
+- Tant que le visiteur ne clique pas, aucune connexion à Vimeo : pas de cookie, pas d'appel externe. Au clic, le lecteur Vimeo se charge avec `dnt=1` (« ne pas suivre »). La politique de sécurité (`vercel.json`) n'autorise que `player.vimeo.com` en cadre.
+- Dans Vimeo, autoriser l'intégration de la vidéo sur le domaine du site (Paramètres de la vidéo → Intégration).
+
 ## Ajouter une boutique (section « Où le voir »)
 
 La section « Où le voir » s'affiche après le catalogue dès que **`boutiques.json`** contient au moins une boutique. Tant que la liste est vide, elle reste invisible.
