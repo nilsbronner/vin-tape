@@ -595,3 +595,139 @@ blockquote, figure { margin: 0; }
   .idee__cassette { width: min(100%, 22rem); }
   .idee__phrase { font-size: 2rem; }
 }
+
+/* ==========================================================================
+   Catalogue
+   ========================================================================== */
+.catalogue { padding-inline: 0; max-width: none; }
+.catalogue .section__tete { padding-inline: var(--marge); max-width: calc(var(--largeur) + 2 * var(--marge)); margin-inline: auto; }
+@media (min-width: 1360px) {
+  .catalogue .section__tete { padding-inline: calc((100vw - var(--largeur)) / 2); max-width: none; }
+}
+.catalogue__cadre { position: relative; }
+.catalogue__piste {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--marge);
+  padding: 1rem var(--marge) 2rem;
+  scrollbar-width: none;
+}
+.catalogue__piste::-webkit-scrollbar { display: none; }
+.catalogue__piste:focus-visible { outline-offset: -3px; }
+
+.carte {
+  flex: 0 0 min(80vw, 21rem);
+  scroll-snap-align: start;
+}
+.carte__article {
+  height: 100%;
+  display: grid; grid-template-rows: auto 1fr;
+  border-radius: calc(var(--rayon) * 1.4);
+  background: var(--fond-2);
+  border: 1px solid var(--ligne);
+  overflow: hidden;
+  transition: border-color .3s, transform .4s var(--ease);
+}
+.carte:hover .carte__article, .carte:focus-within .carte__article { border-color: rgb(243 239 230 / .35); }
+.carte.est-choisie .carte__article { border-color: var(--accent); }
+.carte__visuel {
+  position: relative;
+  padding: 2rem 1.5rem 1.6rem;
+  background: radial-gradient(70% 70% at 50% 45%, color-mix(in srgb, var(--facade) 26%, transparent), transparent 75%), var(--fond-3);
+}
+.carte__visuel svg, .carte__visuel img {
+  width: 100%; height: auto;
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 14px 18px rgb(0 0 0 / .45));
+  transition: transform .5s var(--ease);
+}
+.carte:hover .carte__visuel svg, .carte:focus-within .carte__visuel svg,
+.carte:hover .carte__visuel img, .carte:focus-within .carte__visuel img { transform: rotate(0) scale(1.03); }
+.carte:hover .k7-rotor, .carte:focus-within .k7-rotor { animation: k7-tourne 2.6s linear infinite; }
+.carte:hover .k7-bobine-d .k7-rotor, .carte:focus-within .k7-bobine-d .k7-rotor { animation-duration: 1.9s; }
+
+.carte__corps { display: grid; gap: .9rem; align-content: start; padding: 1.25rem 1.25rem 1.4rem; }
+.carte__entete { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.carte__titre { font-family: var(--police-titre); font-weight: 800; font-size: 2.4rem; line-height: 1; }
+.carte__titre span { color: var(--discret); font-size: .55em; margin-left: .1em; }
+.carte__format { font-family: var(--police-mono); font-size: .8rem; letter-spacing: .1em; padding: .2rem .55rem; border: 1px solid var(--ligne); border-radius: 6px; }
+.carte__statut { font-family: var(--police-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; display: flex; align-items: center; gap: .5em; }
+.carte__statut::before { content: ""; width: .55em; height: .55em; border-radius: 50%; background: currentColor; }
+.carte__statut--dispo { color: #9fe0b5; }
+.carte__statut--vendue { color: var(--discret); }
+.carte__couleurs { list-style: none; display: grid; gap: .35rem; font-size: .9rem; color: var(--discret); }
+.pastille { display: flex; align-items: center; gap: .6rem; }
+.pastille__rond { width: 1rem; height: 1rem; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .25); flex: none; }
+.carte__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .3rem; }
+.carte__actions .bouton:not(.bouton--petit) { min-height: 44px; padding: .6em 1.1em; font-size: .78rem; }
+
+.carte--vendue .carte__visuel svg, .carte--vendue .carte__visuel img { filter: grayscale(1) brightness(.6); }
+.carte--vendue .carte__visuel { background: var(--fond-3); }
+.carte--vendue .carte__titre { color: var(--discret); }
+.carte__tampon {
+  position: absolute; left: 50%; top: 50%;
+  translate: -50% -50%; rotate: -12deg;
+  padding: .3rem 1rem;
+  border: 3px solid var(--texte);
+  border-radius: 6px;
+  font-family: var(--police-titre); font-weight: 900; font-size: 2rem; letter-spacing: .08em; text-transform: uppercase;
+  background: rgb(18 18 17 / .55);
+}
+
+.catalogue__fleche {
+  display: none;
+  position: absolute; top: 40%; z-index: 2;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--ligne);
+  background: rgb(18 18 17 / .85);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  cursor: pointer;
+  font-size: .8rem;
+  letter-spacing: -.1em;
+  transition: opacity .3s, border-color .3s;
+}
+.catalogue__fleche:hover { border-color: var(--texte); }
+.catalogue__fleche:disabled { opacity: 0; pointer-events: none; }
+.catalogue__fleche--prec { left: 1rem; }
+.catalogue__fleche--suiv { right: 1rem; }
+@media (hover: hover) and (min-width: 760px) {
+  .catalogue__fleche { display: grid; place-items: center; }
+}
+
+.catalogue__bande {
+  margin: 0 var(--marge);
+  height: 4px;
+  border-radius: 4px;
+  background: var(--ligne);
+  overflow: hidden;
+}
+.catalogue__bande span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, #5c4232, #8a6249);
+  transform-origin: left;
+  transform: scaleX(.04);
+  transition: transform .15s linear;
+}
+@media (min-width: 1360px) {
+  .catalogue__piste { padding-inline: calc((100vw - var(--largeur)) / 2); scroll-padding-inline: calc((100vw - var(--largeur)) / 2); }
+  .catalogue__bande { margin-inline: calc((100vw - var(--largeur)) / 2); }
+}
+
+/* Petit effet de profondeur au défilement, là où le navigateur le permet */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .carte__article {
+      animation: carte-entree linear both;
+      animation-timeline: view(inline);
+      animation-range: entry 0% cover 30%;
+    }
+    @keyframes carte-entree { from { transform: scale(.9); opacity: .4; } to { transform: none; opacity: 1; } }
+  }
+}
+
+.appel__selection:empty { display: none; }
