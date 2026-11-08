@@ -17,7 +17,8 @@ Puis ouvrir http://localhost:8000. Un serveur est nécessaire car le site charge
 Tous les textes sont dans **`contenu.json`** : accroche, histoire, savoir-faire, fiche technique, avis, contact, pied de page, pages légales.
 
 - `[À REMPLIR]` : texte manquant. `[À VALIDER]` : info à confirmer. Les deux s'affichent en surbrillance jaune sur le site tant qu'ils sont là.
-- **Accroche** : `"accroche"`. Les pistes non retenues sont dans `"accrochesAlternatives"`.
+- **Accroche** : un seul champ, `"accroche"`. Pour en changer, y copier l'une des phrases de `"accrochesPossibles"` (et mettre à jour `og:description` dans `index.html`).
+- **Origine** : `"savoirFaire.origine"` et la ligne « Origine » de la fiche technique. Ne jamais écrire « Fabriqué en France » ni « Made in France » dans les textes du site (la mention imprimée sur les étiquettes des pièces reste telle quelle).
 - **Phrase d'ouverture de « L'idée »** : `"idee.phraseOuverture.version"` vaut `"question"` ou `"affirmation"`.
 - **Vraies dimensions** : `"ficheTechnique.dimensionsCm"` (largeur, hauteur, profondeur en cm). Le modèle 3D et la réalité augmentée s'y ajustent automatiquement. Tant qu'elles sont vides, le site affiche des dimensions provisoires (environ 45 × 23 × 24 cm) marquées « à valider ».
 - **Repères de la section « L'idée »** : `"idee.facade.reperes"` (positions en % sur la photo de façade).

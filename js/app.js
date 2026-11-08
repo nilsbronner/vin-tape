@@ -1,7 +1,7 @@
 import { chargerDonnees, estDisponible } from './donnees.js';
 import { remplirTextes } from './contenu.js';
 import {
-  remplirPortrait, remplirPartenaires, remplirFiche, remplirAvis, remplirContact, remplirPied,
+  remplirPortrait, remplirFiche, remplirAvis, remplirContact, remplirPied,
 } from './sections.js';
 import { initRevele } from './revele.js';
 import { initHero } from './hero.js';
@@ -50,7 +50,6 @@ async function demarrer() {
   const { contenu, pieces, catalogue } = donnees;
   remplirTextes(contenu);
   remplirPortrait(contenu);
-  remplirPartenaires(contenu);
   remplirFiche(contenu);
   remplirAvis(contenu);
   remplirContact(contenu);

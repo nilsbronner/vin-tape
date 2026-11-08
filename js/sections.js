@@ -1,4 +1,4 @@
-// Sections simples remplies depuis contenu.json : artiste, partenaires,
+// Sections simples remplies depuis contenu.json : artiste,
 // fiche technique, avis, contact, pied de page.
 import { creer, contientMarqueur, ecrire } from './contenu.js';
 
@@ -22,17 +22,6 @@ export function remplirPortrait(contenu) {
     vide.setAttribute('aria-label', alt || 'Portrait à venir');
     vide.append(creer('span', 'portrait-vide__eaz', 'EAZ'), creer('span', 'portrait-vide__note', '[À REMPLIR] Portrait'));
     figure.append(vide);
-  }
-}
-
-export function remplirPartenaires(contenu) {
-  const ul = document.querySelector('[data-partenaires]');
-  if (!ul) return;
-  ul.textContent = '';
-  for (const p of contenu.savoirFaire.partenaires || []) {
-    const li = creer('li', 'partenaire');
-    li.append(creer('p', 'partenaire__nom', p.nom), creer('p', 'partenaire__role', p.role));
-    ul.append(li);
   }
 }
 
