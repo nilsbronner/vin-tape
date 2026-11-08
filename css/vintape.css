@@ -803,6 +803,53 @@ blockquote, figure { margin: 0; }
 .appel__selection:empty { display: none; }
 
 /* ==========================================================================
+   Fiche d'une pièce
+   ========================================================================== */
+.carte__ouvrir { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: inherit; }
+.carte__ouvrir:focus-visible { outline-offset: -3px; }
+.fiche-piece {
+  width: min(100% - 1.5rem, 68rem);
+  max-height: calc(100% - 1.5rem);
+  padding: 0;
+  border: 0;
+  border-radius: calc(var(--rayon) * 1.4);
+  background: var(--carte);
+  color: var(--texte);
+  box-shadow: 0 30px 80px rgb(var(--ombre) / .35);
+  overflow: auto;
+}
+.fiche-piece[open] { display: grid; }
+.fiche-piece::backdrop { background: rgb(34 31 27 / .55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.fiche-piece__fermer {
+  position: sticky; top: .75rem; justify-self: end; z-index: 2;
+  margin: .75rem .75rem -3.5rem 0;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--ligne); background: var(--carte);
+  font-size: 1.6rem; line-height: 1; cursor: pointer;
+}
+.fiche-piece__galerie { display: grid; gap: .75rem; padding: 1rem; background: radial-gradient(70% 70% at 50% 45%, color-mix(in srgb, var(--facade) 30%, transparent), transparent 75%), var(--fond-2); }
+.fiche-piece__image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--rayon); background: var(--fond-3); }
+.fiche-piece__image.est-rendu { object-fit: contain; background: transparent; padding: 4%; }
+.fiche-piece__vignettes { display: flex; gap: .5rem; overflow-x: auto; }
+.fiche-piece__vignette { flex: none; width: 84px; height: 58px; padding: 0; border: 2px solid transparent; border-radius: 8px; background: var(--fond-3); cursor: pointer; overflow: hidden; }
+.fiche-piece__vignette img { width: 100%; height: 100%; object-fit: cover; }
+.fiche-piece__vignette[aria-pressed="true"] { border-color: var(--accent); }
+.fiche-piece__infos { display: grid; gap: 1rem; align-content: start; padding: 1.5rem; }
+.fiche-piece__titre { font-family: var(--police-titre); font-weight: 800; font-size: 3rem; line-height: 1; }
+.fiche-piece__titre span { color: var(--discret); font-size: .5em; }
+.fiche-piece__details { display: grid; margin: 0; border-top: 1px solid var(--ligne); }
+.fiche-piece__details div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--ligne); }
+.fiche-piece__details dt { font-family: var(--police-mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--discret); padding-top: .25em; }
+.fiche-piece__details dd { margin: 0; }
+.fiche-piece__actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+@media (min-width: 900px) {
+  .fiche-piece[open] { grid-template-columns: 3fr 2fr; }
+  .fiche-piece__fermer { grid-column: 1 / -1; }
+  .fiche-piece__galerie { padding: 1.5rem; align-content: start; }
+  .fiche-piece__infos { padding: 2.5rem 2rem; }
+}
+
+/* ==========================================================================
    Livraison et paiement
    ========================================================================== */
 .livraison__grille { display: grid; gap: 2.5rem; }

@@ -1,5 +1,5 @@
 {
-  "_note": "24 pièces identifiées sur les photos du 6 novembre (8 couleurs × 3 versions). La NUMÉROTATION reste provisoire : à corriger avec les vrais numéros. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). format = 60 ou 90. marque = lettre (Chrome), numéro de face (Super Colour) ou chiffre (Low-Noise) imprimé sur l'étiquette. caisson = \"blanc\", \"noir\", \"assorti\" ou un objet {\"dessus\", \"cotes\", \"dos\", \"dessous\"} pour un caisson bicolore (regénérer ensuite avec outils/generer_modeles.py).",
+  "_note": "24 pièces identifiées sur les photos du 6 novembre (8 couleurs × 3 versions). La NUMÉROTATION reste provisoire : à corriger avec les vrais numéros. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). format = 60 ou 90. marque = lettre (Chrome), numéro de face (Super Colour) ou chiffre (Low-Noise) imprimé sur l'étiquette. caisson = \"blanc\", \"noir\", \"assorti\" ou un objet {\"dessus\", \"cotes\", \"dos\", \"dessous\"} pour un caisson bicolore (regénérer ensuite avec outils/generer_modeles.py). photos = vraies photos de la pièce (WebP), affichées en premier dans la fiche ; ajouter les nouvelles avec outils/optimiser_photos.py --dossier assets/pieces/photos.",
   "versions": {
     "chrome": {
       "nom": "Chrome",
@@ -43,7 +43,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-menthe-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/menthe-chrome-v5.glb"
+      "modele3d": "/assets/modeles/menthe-chrome-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/menthe-chrome-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/menthe-chrome-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 2,
@@ -57,7 +67,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-menthe-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/menthe-alga-v5.glb"
+      "modele3d": "/assets/modeles/menthe-alga-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/menthe-alga-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/menthe-alga-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 3,
@@ -71,7 +91,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-menthe-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/menthe-lownoise-v5.glb"
+      "modele3d": "/assets/modeles/menthe-lownoise-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/menthe-lownoise-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/menthe-lownoise-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 4,
@@ -85,7 +115,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-sauge-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/sauge-chrome-v5.glb"
+      "modele3d": "/assets/modeles/sauge-chrome-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/sauge-chrome-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/sauge-chrome-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 5,
@@ -99,7 +139,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-sauge-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/sauge-alga-v5.glb"
+      "modele3d": "/assets/modeles/sauge-alga-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/sauge-alga-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/sauge-alga-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 6,
@@ -113,7 +163,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-sauge-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/sauge-lownoise-v5.glb"
+      "modele3d": "/assets/modeles/sauge-lownoise-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/sauge-lownoise-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/sauge-lownoise-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 7,
@@ -127,7 +187,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-orange-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/orange-chrome-v5.glb"
+      "modele3d": "/assets/modeles/orange-chrome-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/orange-chrome-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/orange-chrome-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 8,
@@ -141,7 +211,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-orange-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/orange-alga-v5.glb"
+      "modele3d": "/assets/modeles/orange-alga-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/orange-alga-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/orange-alga-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 9,
@@ -155,7 +235,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-orange-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/orange-lownoise-v5.glb"
+      "modele3d": "/assets/modeles/orange-lownoise-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/orange-lownoise-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/orange-lownoise-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 10,
@@ -169,7 +259,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-vert-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/vert-chrome-v5.glb"
+      "modele3d": "/assets/modeles/vert-chrome-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/vert-chrome-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/vert-chrome-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 11,
@@ -183,7 +283,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-vert-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/vert-alga-v5.glb"
+      "modele3d": "/assets/modeles/vert-alga-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/vert-alga-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/vert-alga-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 12,
@@ -197,7 +307,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-vert-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/vert-lownoise-v5.glb"
+      "modele3d": "/assets/modeles/vert-lownoise-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/vert-lownoise-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/vert-lownoise-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 13,
@@ -211,7 +331,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-bleu-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/bleu-chrome-v5.glb"
+      "modele3d": "/assets/modeles/bleu-chrome-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/bleu-chrome-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/bleu-chrome-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 14,
@@ -225,7 +355,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-bleu-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/bleu-alga-v5.glb"
+      "modele3d": "/assets/modeles/bleu-alga-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/bleu-alga-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/bleu-alga-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 15,
@@ -239,7 +379,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-bleu-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/bleu-lownoise-v5.glb"
+      "modele3d": "/assets/modeles/bleu-lownoise-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/bleu-lownoise-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/bleu-lownoise-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 16,
@@ -253,7 +403,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-rouge-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/rouge-chrome-v5.glb"
+      "modele3d": "/assets/modeles/rouge-chrome-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/rouge-chrome-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/rouge-chrome-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 17,
@@ -267,7 +427,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-rouge-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/rouge-alga-v5.glb"
+      "modele3d": "/assets/modeles/rouge-alga-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/rouge-alga-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/rouge-alga-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 18,
@@ -281,7 +451,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-rouge-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/rouge-lownoise-v5.glb"
+      "modele3d": "/assets/modeles/rouge-lownoise-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/rouge-lownoise-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/rouge-lownoise-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 19,
@@ -295,7 +475,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-violet-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/violet-chrome-v5.glb"
+      "modele3d": "/assets/modeles/violet-chrome-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/violet-chrome-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/violet-chrome-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 20,
@@ -309,7 +499,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-violet-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/violet-alga-v5.glb"
+      "modele3d": "/assets/modeles/violet-alga-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/violet-alga-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/violet-alga-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 21,
@@ -323,7 +523,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-violet-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/violet-lownoise-v5.glb"
+      "modele3d": "/assets/modeles/violet-lownoise-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/violet-lownoise-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/violet-lownoise-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 22,
@@ -337,7 +547,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-jaune-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/jaune-chrome-v5.glb"
+      "modele3d": "/assets/modeles/jaune-chrome-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/jaune-chrome-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/jaune-chrome-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 23,
@@ -351,7 +571,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-jaune-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/jaune-alga-v5.glb"
+      "modele3d": "/assets/modeles/jaune-alga-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/jaune-alga-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/jaune-alga-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     },
     {
       "numero": 24,
@@ -365,7 +595,17 @@
       "images": {
         "packshot": "/assets/pieces/packshot-jaune-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/jaune-lownoise-v5.glb"
+      "modele3d": "/assets/modeles/jaune-lownoise-v5.glb",
+      "photos": [
+        {
+          "src": "/assets/pieces/photos/jaune-lownoise-face-v1.webp",
+          "alt": "Photo de face"
+        },
+        {
+          "src": "/assets/pieces/photos/jaune-lownoise-dos-v1.webp",
+          "alt": "Photo de dos"
+        }
+      ]
     }
   ]
 }

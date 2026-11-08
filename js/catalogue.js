@@ -26,7 +26,7 @@ export function boutonReserver(piece, textes, { libelle, description = '' } = {}
   return span;
 }
 
-function carte(piece, index, { catalogue, textes }) {
+function carte(piece, index, { catalogue, textes, ouvrirFiche }) {
   const dispo = estDisponible(piece);
   const li = creer('li', `carte revele${dispo ? '' : ' carte--vendue'}`);
   li.style.setProperty('--i', index % 4);
@@ -52,6 +52,12 @@ function carte(piece, index, { catalogue, textes }) {
     visuel.append(creer('span', 'carte__a-venir', textes.photoAVenir));
   }
   if (!dispo) visuel.append(creer('span', 'carte__tampon', textes.vendue));
+  // Le visuel ouvre la fiche de la pièce
+  const ouvrir = creer('button', 'carte__ouvrir');
+  ouvrir.type = 'button';
+  ouvrir.setAttribute('aria-label', typo(`${textes.voirFiche} : pièce n° ${numeroAffiche(piece)}, ${resume(catalogue, piece)}`));
+  ouvrir.append(visuel);
+  ouvrir.addEventListener('click', () => ouvrirFiche?.(piece));
 
   const corps = creer('div', 'carte__corps');
   const titre = creer('h3', 'carte__titre');
@@ -85,18 +91,18 @@ function carte(piece, index, { catalogue, textes }) {
   }
 
   corps.append(entete, statut, details, actions);
-  article.append(visuel, corps);
+  article.append(ouvrir, corps);
   li.append(article);
   return li;
 }
 
-export function initCatalogue({ contenu, pieces, catalogue }) {
+export function initCatalogue({ contenu, pieces, catalogue, ouvrirFiche }) {
   const piste = document.querySelector('[data-catalogue]');
   if (!piste) return;
   const textes = contenu.catalogue;
 
   const fragment = document.createDocumentFragment();
-  pieces.forEach((piece, i) => fragment.append(carte(piece, i, { catalogue, textes })));
+  pieces.forEach((piece, i) => fragment.append(carte(piece, i, { catalogue, textes, ouvrirFiche })));
   piste.textContent = '';
   piste.append(fragment);
 

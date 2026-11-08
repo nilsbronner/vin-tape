@@ -9,6 +9,7 @@ import { initIdee } from './idee.js';
 import { initCatalogue } from './catalogue.js';
 import { initVoirEn3D } from './voir-en-3d.js';
 import { initBoutiques } from './boutiques.js';
+import { initFichePiece } from './fiche-piece.js';
 
 function majCompteurs(pieces) {
   const n = pieces.filter(estDisponible).length;
@@ -58,7 +59,8 @@ async function demarrer() {
   majCompteurs(pieces);
   initHero({ pieces, catalogue });
   initIdee({ contenu });
-  initCatalogue({ contenu, pieces, catalogue });
+  const fiche = initFichePiece({ contenu, pieces, catalogue });
+  initCatalogue({ contenu, pieces, catalogue, ouvrirFiche: fiche.ouvrir });
   initVoirEn3D({ contenu, pieces, catalogue });
   await initBoutiques({ contenu });
   renumeroterPistes();

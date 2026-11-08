@@ -20,7 +20,7 @@ Tous les textes sont dans **`contenu.json`** : accroche, histoire, savoir-faire,
 - **Accroche** : un seul champ, `"accroche"`. Pour en changer, y copier l'une des phrases de `"accrochesPossibles"` (et mettre à jour `og:description` dans `index.html`).
 - **Origine** : `"savoirFaire.origine"` et la ligne « Origine » de la fiche technique. Ne jamais écrire « Fabriqué en France » ni « Made in France » dans les textes du site (la mention imprimée sur les étiquettes des pièces reste telle quelle).
 - **Phrase d'ouverture de « L'idée »** : `"idee.phraseOuverture.version"` vaut `"question"` ou `"affirmation"`.
-- **Vraies dimensions** : `"ficheTechnique.dimensionsCm"` (largeur, hauteur, profondeur en cm). Le modèle 3D et la réalité augmentée s'y ajustent automatiquement. Tant qu'elles sont vides, le site affiche des dimensions provisoires (environ 45 × 23 × 24 cm) marquées « à valider ».
+- **Vraies dimensions et poids** : voir « Fiche d'une pièce et vraies photos » plus bas.
 - **Repères de la section « L'idée »** : `"idee.facade.reperes"` (positions en % sur la photo de façade).
 - **Portrait** : `"histoire.portrait.src"` (par exemple `/assets/img/portrait-eaz-v1.webp`).
 - **Avis vidéo** : `"video"` et `"poster"` de chaque avis (chemins vers des fichiers du dépôt).
@@ -34,6 +34,30 @@ Les balises du `<head>` de `index.html` (titre, description, Open Graph) sont à
 Dans **`pieces.json`**, chercher la pièce par son `"numero"` et passer `"statut"` à `"vendue"` (ou `"disponible"`). Le compteur « x/24 disponibles », le catalogue, le grisé et les boutons se mettent à jour seuls.
 
 Les 24 pièces ont été identifiées sur les photos du 6 novembre : 8 couleurs (menthe, sauge, orange, vert, bleu, rouge, violet, jaune) × 3 versions (`"chrome"` caisson blanc, `"alga"` étiquette Super Colour caisson noir, `"low-noise"` caisson assorti). Format, étiquette (`marque`) et caisson viennent des photos. **La numérotation reste provisoire** : corriger `numero` avant le lancement.
+
+## Vérifier les données avant de publier
+
+```bash
+python3 outils/valider.py
+```
+
+Le script contrôle `pieces.json` sans rien modifier : 24 pièces, numéros uniques de 1 à 24, couleurs et versions connues, statut `disponible` ou `vendue`, `lienPaiement` vide ou en `https://`, fichiers d'images et de modèles présents. Il signale aussi les formats manquants, les pièces sans lien Stripe et les dimensions non renseignées. À lancer après chaque modification de `pieces.json`, en particulier quand la vraie numérotation arrive.
+
+## Fiche d'une pièce et vraies photos
+
+Un clic sur une pièce du catalogue ouvre sa fiche : galerie (vraies photos d'abord, puis le rendu 3D), étiquette, caisson, format, dimensions, poids, prix, réservation et accès à la 3D. Chaque fiche a un lien direct partageable : `https://…/#piece-07`.
+
+Les vraies photos sont dans le champ `"photos"` de chaque pièce (`pieces.json`) :
+
+```json
+"photos": [
+  { "src": "/assets/pieces/photos/rouge-alga-face-v1.webp", "alt": "Photo de face" }
+]
+```
+
+Pour en ajouter : original dans `/originals/`, puis `python3 outils/optimiser_photos.py --dossier assets/pieces/photos originals/IMG_1234.jpg`, puis ajouter la ligne dans `"photos"`. Les photos de face et de dos actuelles sont recadrées depuis les photos du 6 novembre par `outils/extraire_photos.py`.
+
+**Dimensions et poids** : `contenu.json` → `"ficheTechnique.dimensionsCm"` (largeur, hauteur, profondeur en cm) et `"ficheTechnique.poidsKg"`. Ils remplissent la fiche technique et les fiches des pièces, et règlent l'échelle de la 3D et de la réalité augmentée.
 
 ## Livraison et paiement
 

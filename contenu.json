@@ -90,7 +90,20 @@
     "bientot": "Bientôt disponible",
     "vendue": "Vendue",
     "voir3d": "Voir en 3D",
-    "photoAVenir": "Photo à venir"
+    "photoAVenir": "Photo à venir",
+    "voirFiche": "Voir la fiche"
+  },
+  "fichePiece": {
+    "fermer": "Fermer la fiche",
+    "voirImage": "Afficher l'image",
+    "rendu": "Rendu 3D",
+    "couleur": "Couleur",
+    "etiquette": "Étiquette",
+    "caisson": "Caisson",
+    "format": "Format",
+    "dimensions": "Dimensions",
+    "poids": "Poids",
+    "prix": "Prix"
   },
   "livraison": {
     "piste": "B2",
@@ -200,11 +213,12 @@
       }
     ],
     "dimensionsCm": {
-      "_note": "Vraies dimensions en cm : le modèle 3D et la réalité augmentée s'y ajustent.",
+      "_note": "Vraies dimensions en cm (nombres). Elles pilotent la fiche technique, la fiche de chaque pièce, et l'échelle de la 3D et de la réalité augmentée.",
       "largeur": null,
       "hauteur": null,
       "profondeur": null
-    }
+    },
+    "poidsKg": null
   },
   "avis": {
     "piste": "B5",
