@@ -9,13 +9,13 @@ import io, json, os, sys
 import numpy as np, cv2
 from PIL import Image, ImageOps
 sys.path.insert(0, os.path.dirname(__file__))
-from glb import Scene, face_boite, fusion, cylindre, boite_arrondie
+from glb import Scene, face_boite, fusion, cylindre, boite_arrondie, prisme
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIG = os.path.join(RACINE, 'originals')
 SORTIE_TEX = os.path.join(RACINE, 'assets', 'pieces')
 SORTIE_GLB = os.path.join(RACINE, 'assets', 'modeles')
-VERSION = 'v2'
+VERSION = 'v3'
 
 # Dimensions PROVISOIRES en mètres (à remplacer par les vraies mesures)
 LARGEUR = 0.45
@@ -24,6 +24,13 @@ PROFONDEUR = 0.24               # caisson profond, à peu près aussi profond qu
 EPAISSEUR_FACADE = 0.02         # plaque de façade épaisse, bords arrondis
 RAYON_FACADE = 0.006
 RAYON_CAISSON = 0.009
+RELIEF_CADRE = 0.0025           # cadre surélevé autour de l'étiquette (étiquette en retrait)
+RELIEF_TRAPEZE = 0.004          # trapèze du bas, encore plus en avant
+
+# Zones de la façade, en fraction de la largeur (u) et de la hauteur (v, depuis le haut),
+# mesurées sur les photos redressées (même dessin pour toutes les pièces).
+ETIQUETTE = {'u': (0.05, 0.95), 'v': (0.085, 0.735)}
+TRAPEZE = [(0.225, 0.745), (0.775, 0.745), (0.80, 1.0), (0.20, 1.0)]
 PIEDS = 0.008
 
 TEINTES = {'blanc': (0.91, 0.90, 0.87), 'noir': (0.11, 0.11, 0.11)}
@@ -95,6 +102,23 @@ def modele(cle, config_caisson, donnees):
         (*plaque['avant'], m_face),
         (*fusion([plaque[n] for n in ('arriere', 'gauche', 'droite', 'dessus', 'dessous')]), m_tranche),
     ])
+    # Relief de la façade : cadre surélevé (l'étiquette paraît en retrait) et trapèze en avant
+    z0 = D / 2
+    mu, mv = RAYON_FACADE / W, RAYON_FACADE / H
+    x_de = lambda u: -W / 2 + u * W
+    y_de = lambda v: yc + H / 2 - v * H
+    uv_de = lambda x, y: ((x + W / 2) / W, (yc + H / 2 - y) / H)
+    eu, ev = ETIQUETTE['u'], ETIQUETTE['v']
+    bandes = [((mu, mv), (1 - mu, ev[0])), ((mu, ev[1]), (1 - mu, 1 - mv)),
+              ((mu, ev[0]), (eu[0], ev[1])), ((eu[1], ev[0]), (1 - mu, ev[1]))]
+    m_flanc = s.materiau('facade-flanc', lineaire(tuple(c * 0.55 for c in couleur)), rugosite=0.6)
+    avants, flancs = [], []
+    for (u0, v0), (u1, v1) in bandes:
+        contour = [(x_de(u0), y_de(v0)), (x_de(u1), y_de(v0)), (x_de(u1), y_de(v1)), (x_de(u0), y_de(v1))]
+        a, f = prisme(contour, z0, z0 + RELIEF_CADRE, uv_de); avants.append(a); flancs.append(f)
+    contour = [(x_de(u), y_de(min(v, 1 - mv))) for u, v in TRAPEZE]
+    a, f = prisme(contour, z0 + RELIEF_CADRE, z0 + RELIEF_CADRE + RELIEF_TRAPEZE, uv_de); avants.append(a); flancs.append(f)
+    s.maillage('facade-relief', [(*fusion(avants), m_face), (*fusion(flancs), m_flanc)])
     # Joint sombre entre façade et caisson
     joint = boite_arrondie((0, yc, D / 2 - e - 0.0015), (W - 0.006, H - 0.006, 0.003), 0.004)
     s.maillage('joint', [(*fusion(list(joint.values())), m_joint)])
