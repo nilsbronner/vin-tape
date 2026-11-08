@@ -32,7 +32,7 @@ Les balises du `<head>` de `index.html` (titre, description, Open Graph) sont à
 
 Dans **`pieces.json`**, chercher la pièce par son `"numero"` et passer `"statut"` à `"vendue"` (ou `"disponible"`). Le compteur « x/24 disponibles », le catalogue, le grisé et les boutons se mettent à jour seuls.
 
-La collection a été déduite des photos du 6 novembre : 8 couleurs × 3 versions (`"chrome"` caisson blanc, `"alga"` étiquette Super Colour caisson noir, `"low-noise"` caisson assorti). **La numérotation est provisoire**, et la 8e couleur n'apparaît sur aucune photo : corriger `numero`, `couleur`, `format` (`"60"` ou `"90"`) avant le lancement.
+Les 24 pièces ont été identifiées sur les photos du 6 novembre : 8 couleurs (menthe, sauge, orange, vert, bleu, rouge, violet, jaune) × 3 versions (`"chrome"` caisson blanc, `"alga"` étiquette Super Colour caisson noir, `"low-noise"` caisson assorti). Format, étiquette (`marque`) et caisson viennent des photos. **La numérotation reste provisoire** : corriger `numero` avant le lancement.
 
 ## Ajouter une boutique (section « Où le voir »)
 
