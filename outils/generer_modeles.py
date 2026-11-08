@@ -15,7 +15,7 @@ RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIG = os.path.join(RACINE, 'originals')
 SORTIE_TEX = os.path.join(RACINE, 'assets', 'pieces')
 SORTIE_GLB = os.path.join(RACINE, 'assets', 'modeles')
-VERSION = 'v4'
+VERSION = 'v5'
 
 # Dimensions PROVISOIRES en mètres (à remplacer par les vraies mesures)
 LARGEUR = 0.45
