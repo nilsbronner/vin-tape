@@ -1,4 +1,5 @@
 // Hero : les vraies pièces défilent en fondu, une par une.
+// Seules la pièce affichée et la suivante sont chargées (performance).
 import { aUnVisuel, numeroAffiche, nomCouleur, nomVersion, couleurHex } from './donnees.js';
 import { mouvementReduit } from './revele.js';
 
@@ -11,27 +12,32 @@ export function initHero({ pieces, catalogue }) {
   const visibles = pieces.filter(aUnVisuel);
   if (!hero || !cible || !visibles.length) return;
 
+  const images = new Array(visibles.length);
   // La première image est déjà dans le HTML (affichage immédiat) : on la réutilise.
   const initiale = cible.querySelector('img');
-  if (initiale && initiale.getAttribute('src') !== visibles[0].images.packshot) initiale.remove();
-  const images = visibles.map((piece, i) => {
-    if (i === 0 && initiale?.isConnected) return initiale;
-    const img = document.createElement('img');
-    img.src = piece.images.packshot;
-    img.alt = i === 0 ? `Enceinte Vin’tape n° ${numeroAffiche(piece)}, ${nomCouleur(catalogue, piece)}, version ${nomVersion(catalogue, piece)}` : '';
-    if (i > 0) img.setAttribute('aria-hidden', 'true');
-    img.width = 951;
-    img.height = 650;
-    img.decoding = 'async';
-    if (i === 0) img.fetchPriority = 'high';
-    else img.loading = 'lazy';
-    cible.append(img);
-    return img;
-  });
+  if (initiale && initiale.getAttribute('src') === visibles[0].images.packshot) images[0] = initiale;
+  else initiale?.remove();
+
+  const image = (i) => {
+    if (!images[i]) {
+      const piece = visibles[i];
+      const img = document.createElement('img');
+      img.src = piece.images.packshot;
+      img.alt = '';
+      img.setAttribute('aria-hidden', 'true');
+      img.width = 951;
+      img.height = 650;
+      img.decoding = 'async';
+      cible.append(img);
+      images[i] = img;
+    }
+    return images[i];
+  };
 
   let index = 0;
   const afficher = (i) => {
-    images.forEach((img, k) => img.classList.toggle('est-active', k === i));
+    const active = image(i);
+    images.forEach((img) => img?.classList.toggle('est-active', img === active));
     const piece = visibles[i];
     document.documentElement.style.setProperty('--facade', couleurHex(catalogue, piece));
     if (legende) legende.textContent = `N° ${numeroAffiche(piece)}/24 · ${nomCouleur(catalogue, piece)} · ${nomVersion(catalogue, piece)}`;
@@ -41,12 +47,20 @@ export function initHero({ pieces, catalogue }) {
 
   let minuteur = null;
   let visible = true;
+  const suivante = () => (index + 1) % visibles.length;
   const demarrer = () => {
     if (minuteur || !visible || document.hidden) return;
-    minuteur = setInterval(() => { index = (index + 1) % visibles.length; afficher(index); }, INTERVALLE);
+    image(suivante()); // précharge la prochaine
+    minuteur = setInterval(() => {
+      index = suivante();
+      afficher(index);
+      image(suivante());
+    }, INTERVALLE);
   };
   const arreter = () => { clearInterval(minuteur); minuteur = null; };
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? demarrer() : arreter(); }).observe(hero);
   document.addEventListener('visibilitychange', () => (document.hidden ? arreter() : demarrer()));
-  demarrer();
+  // Le défilement démarre après le chargement de la page, pour ne pas gêner l'affichage initial.
+  if (document.readyState === 'complete') demarrer();
+  else window.addEventListener('load', demarrer, { once: true });
 }
