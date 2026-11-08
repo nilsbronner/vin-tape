@@ -8,6 +8,7 @@ import { injecterStyle } from './cassette.js';
 import { initHero } from './hero.js';
 import { initIdee } from './idee.js';
 import { initCatalogue } from './catalogue.js';
+import { initVoirChezMoi } from './voir-chez-moi.js';
 
 function majCompteurs(pieces) {
   const n = pieces.filter(estDisponible).length;
@@ -46,6 +47,7 @@ async function demarrer() {
   initHero({ pieces, palette });
   initIdee({ contenu, pieces, palette });
   initCatalogue({ contenu, pieces, palette });
+  initVoirChezMoi({ contenu, pieces, palette });
   initRevele();
 }
 
