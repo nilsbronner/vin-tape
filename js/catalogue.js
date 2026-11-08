@@ -1,6 +1,6 @@
 // Catalogue des 24 pièces : galerie horizontale, statut, réservation.
 import {
-  estDisponible, numeroAffiche, nomCouleur, nomVersion, nomCaisson, couleurHex, resume, aUnVisuel, aUn3D,
+  estDisponible, numeroAffiche, nomCouleur, nomEtiquette, nomCaisson, couleurHex, resume, aUnVisuel, aUn3D,
 } from './donnees.js';
 import { creer, typo } from './contenu.js';
 import { choisir, surChoix } from './selection.js';
@@ -68,7 +68,7 @@ function carte(piece, index, { catalogue, textes }) {
   const rond = creer('span', 'pastille__rond');
   rond.setAttribute('aria-hidden', 'true');
   ligneCouleur.append(rond, creer('span', null, nomCouleur(catalogue, piece)));
-  details.append(ligneCouleur, creer('li', null, `Version ${nomVersion(catalogue, piece)}`));
+  details.append(ligneCouleur, creer('li', null, `Étiquette ${nomEtiquette(catalogue, piece)}`));
   if (nomCaisson(catalogue, piece)) details.append(creer('li', null, nomCaisson(catalogue, piece)));
 
   const actions = creer('div', 'carte__actions');

@@ -33,6 +33,13 @@ export function nomVersion(catalogue, piece) {
   return catalogue.versions?.[piece.version]?.nom || majuscule(piece.version);
 }
 
+// « Chrome B », « Super Colour, face 2 », « Low-Noise 1 »
+export function nomEtiquette(catalogue, piece) {
+  const nom = nomVersion(catalogue, piece);
+  if (!piece.marque) return nom;
+  return piece.version === 'alga' ? `${nom}, face ${piece.marque}` : `${nom} ${piece.marque}`;
+}
+
 export function nomCaisson(catalogue, piece) {
   return catalogue.caissons?.[piece.caisson] || '';
 }

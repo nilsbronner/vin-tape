@@ -1,5 +1,5 @@
 {
-  "_note": "Numérotation PROVISOIRE (8 couleurs × 3 versions, déduite des photos du 6 novembre) : à corriger avec les vrais numéros. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). format = 60 ou 90 (vide = inconnu). La 8e couleur n'apparaît pas sur les photos : à renseigner. caisson = \"blanc\", \"noir\", \"assorti\" ou un objet {\"dessus\", \"cotes\", \"dos\", \"dessous\"} pour un caisson bicolore (regénérer les modèles avec outils/generer_modeles.py).",
+  "_note": "24 pièces identifiées sur les photos du 6 novembre (8 couleurs × 3 versions). La NUMÉROTATION reste provisoire : à corriger avec les vrais numéros. statut = disponible ou vendue. lienPaiement = URL Stripe Payment Link (vide = « bientôt disponible »). format = 60 ou 90. marque = lettre (Chrome), numéro de face (Super Colour) ou chiffre (Low-Noise) imprimé sur l'étiquette. caisson = \"blanc\", \"noir\", \"assorti\" ou un objet {\"dessus\", \"cotes\", \"dos\", \"dessous\"} pour un caisson bicolore (regénérer ensuite avec outils/generer_modeles.py).",
   "versions": {
     "chrome": {
       "nom": "Chrome",
@@ -27,323 +27,345 @@
     "bleu": "#2e8de0",
     "rouge": "#ee3a22",
     "violet": "#a68ce0",
-    "couleur-8": "#c9c2b4"
+    "jaune": "#f2c21b"
   },
-  "nomsCouleurs": {
-    "couleur-8": "8e couleur [À VALIDER]"
-  },
+  "nomsCouleurs": {},
   "pieces": [
     {
       "numero": 1,
       "couleur": "menthe",
       "version": "chrome",
+      "marque": "B",
       "caisson": "blanc",
       "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-chrome-v4.webp"
+        "packshot": "/assets/pieces/packshot-menthe-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/menthe-chrome-v4.glb"
+      "modele3d": "/assets/modeles/menthe-chrome-v5.glb"
     },
     {
       "numero": 2,
       "couleur": "menthe",
       "version": "alga",
+      "marque": "2",
       "caisson": "noir",
       "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-alga-v4.webp"
+        "packshot": "/assets/pieces/packshot-menthe-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/menthe-alga-v4.glb"
+      "modele3d": "/assets/modeles/menthe-alga-v5.glb"
     },
     {
       "numero": 3,
       "couleur": "menthe",
       "version": "low-noise",
+      "marque": "1",
       "caisson": "assorti",
       "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-menthe-lownoise-v4.webp"
+        "packshot": "/assets/pieces/packshot-menthe-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/menthe-lownoise-v4.glb"
+      "modele3d": "/assets/modeles/menthe-lownoise-v5.glb"
     },
     {
       "numero": 4,
       "couleur": "sauge",
       "version": "chrome",
+      "marque": "A",
       "caisson": "blanc",
       "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-sauge-chrome-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/sauge-chrome-v5.glb"
     },
     {
       "numero": 5,
       "couleur": "sauge",
       "version": "alga",
+      "marque": "1",
       "caisson": "noir",
       "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-sauge-alga-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/sauge-alga-v5.glb"
     },
     {
       "numero": 6,
       "couleur": "sauge",
       "version": "low-noise",
+      "marque": "2",
       "caisson": "assorti",
       "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-sauge-lownoise-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/sauge-lownoise-v5.glb"
     },
     {
       "numero": 7,
       "couleur": "orange",
       "version": "chrome",
+      "marque": "B",
       "caisson": "blanc",
       "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-chrome-v4.webp"
+        "packshot": "/assets/pieces/packshot-orange-chrome-v5.webp"
       },
-      "modele3d": "/assets/modeles/orange-chrome-v4.glb"
+      "modele3d": "/assets/modeles/orange-chrome-v5.glb"
     },
     {
       "numero": 8,
       "couleur": "orange",
       "version": "alga",
+      "marque": "1",
       "caisson": "noir",
       "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-alga-v4.webp"
+        "packshot": "/assets/pieces/packshot-orange-alga-v5.webp"
       },
-      "modele3d": "/assets/modeles/orange-alga-v4.glb"
+      "modele3d": "/assets/modeles/orange-alga-v5.glb"
     },
     {
       "numero": 9,
       "couleur": "orange",
       "version": "low-noise",
+      "marque": "1",
       "caisson": "assorti",
       "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-orange-lownoise-v4.webp"
+        "packshot": "/assets/pieces/packshot-orange-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/orange-lownoise-v4.glb"
+      "modele3d": "/assets/modeles/orange-lownoise-v5.glb"
     },
     {
       "numero": 10,
       "couleur": "vert",
       "version": "chrome",
+      "marque": "B",
       "caisson": "blanc",
       "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-vert-chrome-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/vert-chrome-v5.glb"
     },
     {
       "numero": 11,
       "couleur": "vert",
       "version": "alga",
+      "marque": "2",
       "caisson": "noir",
-      "format": "",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-vert-alga-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/vert-alga-v5.glb"
     },
     {
       "numero": 12,
       "couleur": "vert",
       "version": "low-noise",
+      "marque": "1",
       "caisson": "assorti",
       "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": "/assets/pieces/packshot-vert-lownoise-v4.webp"
+        "packshot": "/assets/pieces/packshot-vert-lownoise-v5.webp"
       },
-      "modele3d": "/assets/modeles/vert-lownoise-v4.glb"
+      "modele3d": "/assets/modeles/vert-lownoise-v5.glb"
     },
     {
       "numero": 13,
       "couleur": "bleu",
       "version": "chrome",
+      "marque": "B",
       "caisson": "blanc",
-      "format": "",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-bleu-chrome-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/bleu-chrome-v5.glb"
     },
     {
       "numero": 14,
       "couleur": "bleu",
       "version": "alga",
+      "marque": "2",
       "caisson": "noir",
-      "format": "",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-bleu-alga-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/bleu-alga-v5.glb"
     },
     {
       "numero": 15,
       "couleur": "bleu",
       "version": "low-noise",
+      "marque": "1",
       "caisson": "assorti",
       "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-bleu-lownoise-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/bleu-lownoise-v5.glb"
     },
     {
       "numero": 16,
       "couleur": "rouge",
       "version": "chrome",
+      "marque": "A",
       "caisson": "blanc",
-      "format": "",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-rouge-chrome-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/rouge-chrome-v5.glb"
     },
     {
       "numero": 17,
       "couleur": "rouge",
       "version": "alga",
-      "caisson": "noir",
-      "format": "",
-      "statut": "disponible",
-      "lienPaiement": "",
-      "images": {
-        "packshot": ""
-      },
-      "modele3d": ""
-    },
-    {
-      "numero": 18,
-      "couleur": "rouge",
-      "version": "low-noise",
-      "caisson": "assorti",
-      "format": "",
-      "statut": "disponible",
-      "lienPaiement": "",
-      "images": {
-        "packshot": ""
-      },
-      "modele3d": ""
-    },
-    {
-      "numero": 19,
-      "couleur": "violet",
-      "version": "chrome",
-      "caisson": "blanc",
-      "format": "",
-      "statut": "disponible",
-      "lienPaiement": "",
-      "images": {
-        "packshot": ""
-      },
-      "modele3d": ""
-    },
-    {
-      "numero": 20,
-      "couleur": "violet",
-      "version": "alga",
+      "marque": "1",
       "caisson": "noir",
       "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-rouge-alga-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/rouge-alga-v5.glb"
+    },
+    {
+      "numero": 18,
+      "couleur": "rouge",
+      "version": "low-noise",
+      "marque": "2",
+      "caisson": "assorti",
+      "format": "90",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "packshot": "/assets/pieces/packshot-rouge-lownoise-v5.webp"
+      },
+      "modele3d": "/assets/modeles/rouge-lownoise-v5.glb"
+    },
+    {
+      "numero": 19,
+      "couleur": "violet",
+      "version": "chrome",
+      "marque": "A",
+      "caisson": "blanc",
+      "format": "90",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "packshot": "/assets/pieces/packshot-violet-chrome-v5.webp"
+      },
+      "modele3d": "/assets/modeles/violet-chrome-v5.glb"
+    },
+    {
+      "numero": 20,
+      "couleur": "violet",
+      "version": "alga",
+      "marque": "2",
+      "caisson": "noir",
+      "format": "90",
+      "statut": "disponible",
+      "lienPaiement": "",
+      "images": {
+        "packshot": "/assets/pieces/packshot-violet-alga-v5.webp"
+      },
+      "modele3d": "/assets/modeles/violet-alga-v5.glb"
     },
     {
       "numero": 21,
       "couleur": "violet",
       "version": "low-noise",
+      "marque": "2",
       "caisson": "assorti",
-      "format": "",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-violet-lownoise-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/violet-lownoise-v5.glb"
     },
     {
       "numero": 22,
-      "couleur": "couleur-8",
+      "couleur": "jaune",
       "version": "chrome",
+      "marque": "A",
       "caisson": "blanc",
-      "format": "",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-jaune-chrome-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/jaune-chrome-v5.glb"
     },
     {
       "numero": 23,
-      "couleur": "couleur-8",
+      "couleur": "jaune",
       "version": "alga",
+      "marque": "1",
       "caisson": "noir",
-      "format": "",
+      "format": "90",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-jaune-alga-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/jaune-alga-v5.glb"
     },
     {
       "numero": 24,
-      "couleur": "couleur-8",
+      "couleur": "jaune",
       "version": "low-noise",
+      "marque": "2",
       "caisson": "assorti",
-      "format": "",
+      "format": "60",
       "statut": "disponible",
       "lienPaiement": "",
       "images": {
-        "packshot": ""
+        "packshot": "/assets/pieces/packshot-jaune-lownoise-v5.webp"
       },
-      "modele3d": ""
+      "modele3d": "/assets/modeles/jaune-lownoise-v5.glb"
     }
   ]
 }
