@@ -21,6 +21,19 @@
     "signature": "Une œuvre d'EAZ",
     "bouton": "Découvrir les 24 pièces"
   },
+  "lancement": {
+    "_note": "Compte à rebours du hero. date = moment du lancement (heure de Paris, +01:00 en hiver). Une fois la date passée, le compte à rebours disparaît et « ouvert » s'affiche.",
+    "date": "2026-12-01T00:00:00+01:00",
+    "titre": "Précommande disponible pour réserver",
+    "texte": "Lancement des commandes définitives le 1er décembre",
+    "ouvert": "Les commandes sont ouvertes",
+    "unites": {
+      "jours": "jours",
+      "heures": "heures",
+      "minutes": "min",
+      "secondes": "s"
+    }
+  },
   "videos": {
     "_note": "url = lien Vimeo (https://vimeo.com/123456789, ou https://vimeo.com/123456789/abcdef pour une vidéo non répertoriée). vignette = image locale (WebP, via outils/optimiser_photos.py) affichée avant le clic. Aucune connexion à Vimeo tant que le visiteur n'a pas cliqué.",
     "lancer": "Lancer la vidéo",
