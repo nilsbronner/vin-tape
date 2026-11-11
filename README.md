@@ -29,6 +29,14 @@ Tous les textes sont dans **`contenu.json`** : accroche, histoire, savoir-faire,
 
 Les balises du `<head>` de `index.html` (titre, description, Open Graph) sont à modifier à la main si l'accroche change.
 
+## Compte à rebours du lancement
+
+Dans le hero, sous le bouton : « Précommande disponible pour réserver », un compte à rebours, et « Lancement des commandes définitives le 1er décembre ». Tout se règle dans `contenu.json` → `"lancement"` :
+
+- `date` : moment du lancement, avec le fuseau (`"2026-12-01T00:00:00+01:00"` = 1er décembre à minuit, heure de Paris) ;
+- `titre`, `texte` : les deux phrases ;
+- `ouvert` : la phrase affichée à la place du compte à rebours une fois la date passée.
+
 ## Changer le statut d'une pièce
 
 Voir « Après une vente : passer la pièce en « vendue » » plus bas.

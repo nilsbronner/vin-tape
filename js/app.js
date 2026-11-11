@@ -11,6 +11,7 @@ import { initVoirEn3D } from './voir-en-3d.js';
 import { initBoutiques } from './boutiques.js';
 import { initFichePiece } from './fiche-piece.js';
 import { initVideos } from './videos.js';
+import { initRebours } from './rebours.js';
 
 function majCompteurs(pieces) {
   const n = pieces.filter(estDisponible).length;
@@ -60,6 +61,7 @@ async function demarrer() {
   remplirPied(contenu);
   majCompteurs(pieces);
   initHero({ pieces, catalogue });
+  initRebours({ contenu });
   initIdee({ contenu });
   const fiche = initFichePiece({ contenu, pieces, catalogue });
   initCatalogue({ contenu, pieces, catalogue, ouvrirFiche: fiche.ouvrir });
