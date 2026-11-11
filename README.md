@@ -17,7 +17,7 @@ Puis ouvrir http://localhost:8000. Un serveur est nécessaire car le site charge
 Tous les textes sont dans **`contenu.json`** : accroche, histoire, savoir-faire, fiche technique, avis, contact, pied de page, pages légales.
 
 - `[À REMPLIR]` : texte manquant. `[À VALIDER]` : info à confirmer. Les deux s'affichent en surbrillance jaune sur le site tant qu'ils sont là.
-- **Accroche** : un seul champ, `"accroche"`. Pour en changer, y copier l'une des phrases de `"accrochesPossibles"` (et mettre à jour `og:description` dans `index.html`).
+- **Accroche** : un seul champ, `"accroche"`. Pour en changer, y copier l'une des phrases de `"accrochesPossibles"` (et la recopier aussi dans `index.html` : dans le hero, où elle est écrite en dur pour un affichage immédiat, et dans `og:description`).
 - **Origine** : `"savoirFaire.origine"` et la ligne « Origine » de la fiche technique. Ne jamais écrire « Fabriqué en France » ni « Made in France » dans les textes du site (la mention imprimée sur les étiquettes des pièces reste telle quelle).
 - **Phrase d'ouverture de « L'idée »** : `"idee.phraseOuverture.version"` vaut `"question"` ou `"affirmation"`.
 - **Vraies dimensions et poids** : voir « Fiche d'une pièce et vraies photos » plus bas.

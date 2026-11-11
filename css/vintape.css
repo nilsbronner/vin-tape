@@ -486,7 +486,7 @@ blockquote, figure { margin: 0; }
   background: rgb(250 247 241 / .7);
 }
 .rebours__titre { font-family: var(--police-mono); font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-fonce); }
-.rebours__compteur { display: flex; gap: .5rem; min-height: 3.35rem; }
+.rebours__compteur { display: flex; gap: .5rem; }
 .rebours__case { display: grid; justify-items: center; min-width: 3.6rem; padding: .35rem .4rem; border-radius: 10px; background: var(--texte); color: var(--fond); }
 .rebours__valeur { font-family: var(--police-titre); font-weight: 800; font-size: 2rem; line-height: 1; font-variant-numeric: tabular-nums; }
 .rebours__unite { font-family: var(--police-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
